@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "odyssey",
+  "version": "${version}",
+
+  "name": "Odyssey",
+  "description": "A collection of non-specific features and items that expand upon the base game and its content!",
+  "authors": [
+    "Sydokiddo (Lead Development)",
+    "AmbientUnder (Sound Design + Additional Help)"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/Sydokiddo/odyssey"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/odyssey/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.sydokiddo.odyssey.Odyssey"
+    ],
+    "client": [
+      "net.sydokiddo.odyssey.client.OdysseyClient"
+    ]
+  },
+  "mixins": [
+    "odyssey.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17",
+    "pollen": "1.4.1+1.18.2"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
