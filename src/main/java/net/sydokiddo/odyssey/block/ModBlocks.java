@@ -5,19 +5,19 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.sydokiddo.odyssey.Odyssey;
-import net.sydokiddo.odyssey.block.custom_blocks.*;
 import net.sydokiddo.odyssey.item.ModItemGroup;
-import net.sydokiddo.odyssey.sound.ModSoundEvents;
 
 public class ModBlocks {
 
 // List of Blocks:
+
+    public static final Block RUBY_BLOCK = registerBlock("ruby_block",
+    new Block(FabricBlockSettings.of(Material.METAL, MapColor.BRIGHT_RED)
+    .sounds(BlockSoundGroup.METAL).requiresTool().hardness(5.0f).strength(6.0f)));
 
 // Registry for Blocks:
 
