@@ -39,6 +39,9 @@ public class ModItems {
     public static final Item PELLET = registerItem("pellet",
             new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
 
+    public static final Item SOUL_POWDER = registerItem("soul_powder",
+            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+
 // Registry for Items:
 
     private static Item registerItem(String name, Item item) {
