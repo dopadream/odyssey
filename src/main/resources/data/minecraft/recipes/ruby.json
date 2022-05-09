@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "odyssey:ruby_block"
+    }
+  ],
+  "result": {
+    "item": "odyssey:ruby",
+    "count": 9
+  }
+}
