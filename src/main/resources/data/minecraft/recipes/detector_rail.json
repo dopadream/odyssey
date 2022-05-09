@@ -10,14 +10,14 @@
       "item": "minecraft:redstone"
     },
     "#": {
-      "item": "minecraft:stick"
+      "item": "minecraft:stone_pressure_plate"
     },
     "X": {
-      "item": "minecraft:gold_ingot"
+      "item": "minecraft:copper_ingot"
     }
   },
   "result": {
-    "item": "minecraft:powered_rail",
+    "item": "minecraft:detector_rail",
     "count": 6
   }
 }
