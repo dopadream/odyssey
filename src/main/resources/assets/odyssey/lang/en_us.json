@@ -17,6 +17,7 @@
   "item.odyssey.raw_sallowsnap": "Raw Sallowsnap",
   "item.odyssey.cooked_sallowsnap": "Cooked Sallowsnap",
   "item.odyssey.soul_powder": "Soul Powder",
+  "item.odyssey.firefly_bottle": "Bottle of Fireflies",
   "block.odyssey.ruby_block": "Block of Ruby",
   "block.odyssey.rose_gold_block": "Block of Rose Gold",
   "block.odyssey.soul_steel_block": "Block of Soul Steel",
@@ -29,6 +30,7 @@
   "block.odyssey.blaze_powder_block": "Block of Blaze Powder",
   "block.odyssey.paper_block": "Block of Paper",
   "block.odyssey.sugar_block": "Block of Sugar",
+  "block.odyssey.firefly_lantern": "Firefly Lantern",
   "effect.odyssey.phasing": "Phasing",
   "item.odyssey.potion.effect.phasing": "Potion of Phasing",
   "item.odyssey.splash_potion.effect.phasing": "Splash Potion of Phasing",
@@ -36,6 +38,11 @@
   "item.odyssey.tipped_arrow.effect.phasing": "Arrow of Phasing",
   "subtitles.item.flintlock.shoot": "Flintlock shoots",
   "subtitles.item.flintlock.reload": "Flintlock reloads",
+  "subtitles.entity.firefly.ambient": "Firefly twinkles",
+  "subtitles.entity.firefly.hurt": "Firefly hurts",
+  "subtitles.entity.firefly.death": "Firefly dies",
+  "entity.odyssey.firefly": "Firefly",
+  "item.odyssey.firefly_spawn_egg": "Firefly Spawn Egg",
   "entity.odyssey.sporechap": "Sporechap",
   "item.odyssey.sporechap_spawn_egg": "Sporechap Spawn Egg",
   "entity.odyssey.bovungus": "Bovungus",
@@ -49,5 +56,7 @@
   "advancements.nether.obtain_soul_steel.title": "Soul Powered",
   "advancements.nether.obtain_soul_steel.description": "Obtain a Soul Steel Ingot",
   "advancements.adventure.anima_archer.title": "Anima Archer",
-  "advancements.adventure.anima_archer.description": "Upgrade a Bow, Crossbow, or Flintlock using Soul Steel"
+  "advancements.adventure.anima_archer.description": "Upgrade a Bow, Crossbow, or Flintlock using Soul Steel",
+  "advancements.adventure.capture_firefly.title": "Lightning in a Bottle",
+  "advancements.adventure.capture_firefly.description": "Capture a Firefly in a glass bottle"
 }

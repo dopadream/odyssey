@@ -19,6 +19,10 @@ public class ModBlocks {
     new Block(FabricBlockSettings.of(Material.METAL, MapColor.BRIGHT_RED)
     .sounds(BlockSoundGroup.METAL).requiresTool().hardness(5.0f).strength(6.0f)));
 
+    public static final Block FIREFLY_LANTERN = registerBlock("firefly_lantern",
+    new LanternBlock(FabricBlockSettings.of(Material.METAL, MapColor.IRON_GRAY)
+    .sounds(BlockSoundGroup.LANTERN).requiresTool().hardness(3.5f).strength(3.5f)));
+
 // Registry for Blocks:
 
     private static Block registerBlock(String name, Block block){

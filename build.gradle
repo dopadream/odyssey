@@ -10,12 +10,12 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
-repositories {
-	maven {
-		name 'Moonflower Repo'
-		url 'https://repo.moonflower.gg/releases'
-	}
-}
+//repositories {
+//	maven {
+//		name 'Moonflower Repo'
+//		url 'https://repo.moonflower.gg/releases'
+//	}
+//}
 
 dependencies {
 	// To change the versions see the gradle.properties file
@@ -23,7 +23,7 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	modApi("gg.moonflower:pollen-fabric:1.4.1+1.18.2") { transitive = false }
+	//modApi("gg.moonflower:pollen-fabric:1.4.1+1.18.2") { transitive = false }
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"

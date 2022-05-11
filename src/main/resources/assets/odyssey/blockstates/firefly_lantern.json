@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "odyssey:block/firefly_lantern"
+    },
+    "hanging=true": {
+      "model": "odyssey:block/firefly_lantern_hanging"
+    }
+  }
+}

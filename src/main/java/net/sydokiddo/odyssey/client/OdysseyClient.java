@@ -13,7 +13,9 @@ public class OdysseyClient implements ClientModInitializer {
         // Renders Blocks in List as Transparent (Without Translucency)
 
         BlockRenderLayerMap.INSTANCE.putBlocks(
-                RenderLayer.getCutout()
+                RenderLayer.getCutout(),
+
+                ModBlocks.FIREFLY_LANTERN
 
         );
 
