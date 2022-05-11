@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "odyssey:ruby_block"
+    "odyssey:ruby_block",
+    "odyssey:firefly_lantern"
   ]
 }
