@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:adventure/root",
+  "display": {
+    "icon": {
+      "item": "odyssey:ruby"
+    },
+    "title": {
+      "translate": "advancements.adventure.obtain_ruby.title"
+    },
+    "description": {
+      "translate": "advancements.adventure.obtain_ruby.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_ruby": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "odyssey:ruby"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ruby"
+    ]
+  ]
+}

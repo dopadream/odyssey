@@ -58,5 +58,9 @@
   "advancements.adventure.anima_archer.title": "Anima Archer",
   "advancements.adventure.anima_archer.description": "Upgrade a Bow, Crossbow, or Flintlock using Soul Steel",
   "advancements.adventure.capture_firefly.title": "Lightning in a Bottle",
-  "advancements.adventure.capture_firefly.description": "Capture a Firefly in a glass bottle"
+  "advancements.adventure.capture_firefly.description": "Capture a Firefly in a glass bottle",
+  "advancements.adventure.use_goat_horn.title": "Call of the Wild",
+  "advancements.adventure.use_goat_horn.description": "Blow a goat horn",
+  "advancements.adventure.kill_ravager.title": "Slay the Beast!",
+  "advancements.adventure.kill_ravager.description": "Defeat a Ravager"
 }

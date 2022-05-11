@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:pellet"
+    ]
+  },
+  "criteria": {
+    "has_flintlock": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "odyssey:flintlock"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:pellet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_flintlock",
+      "has_the_recipe"
+    ]
+  ]
+}
