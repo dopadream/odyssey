@@ -6,7 +6,7 @@
       "item": "minecraft:green_dye"
     },
     {
-      "item": "minecraft:white_wool"
+      "tag": "minecraft:wool"
     }
   ],
   "result": {
