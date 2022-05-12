@@ -22,7 +22,9 @@ public class OdysseyClient implements ClientModInitializer {
         // Renders Blocks in List as Transparent (With Translucency)
 
         BlockRenderLayerMap.INSTANCE.putBlocks(
-                RenderLayer.getTranslucent()
+                RenderLayer.getTranslucent(),
+
+                ModBlocks.MAGMA_CREAM_BLOCK
 
         );
     }

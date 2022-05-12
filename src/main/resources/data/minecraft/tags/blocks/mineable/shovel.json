@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "odyssey:blaze_powder_block",
+    "odyssey:gunpowder_block",
+    "odyssey:sugar_block"
+  ]
+}

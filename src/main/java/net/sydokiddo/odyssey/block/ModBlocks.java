@@ -9,6 +9,8 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.sydokiddo.odyssey.Odyssey;
+import net.sydokiddo.odyssey.block.custom_blocks.MagmaCreamBlock;
+import net.sydokiddo.odyssey.block.custom_blocks.ModPillarBlock;
 import net.sydokiddo.odyssey.item.ModItemGroup;
 
 public class ModBlocks {
@@ -22,6 +24,38 @@ public class ModBlocks {
     public static final Block FIREFLY_LANTERN = registerBlock("firefly_lantern",
     new LanternBlock(FabricBlockSettings.of(Material.METAL, MapColor.IRON_GRAY)
     .sounds(BlockSoundGroup.LANTERN).requiresTool().luminance(10).hardness(3.5f).strength(3.5f)));
+
+    public static final Block GUNPOWDER_BLOCK = registerBlock("gunpowder_block",
+    new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY)
+    .sounds(BlockSoundGroup.SAND).hardness(0.5f).strength(0.5f)));
+
+    public static final Block SUGAR_CANE_BLOCK = registerBlock("sugar_cane_block",
+    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN)
+    .sounds(BlockSoundGroup.GRASS).hardness(1.0f).strength(1.0f)));
+
+    public static final Block BAMBOO_BLOCK = registerBlock("bamboo_block",
+    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MapColor.GREEN)
+    .sounds(BlockSoundGroup.BAMBOO).hardness(1.0f).strength(1.0f)));
+
+    public static final Block ROTTEN_FLESH_BLOCK = registerBlock("rotten_flesh_block",
+    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_ORANGE)
+    .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
+
+    public static final Block MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
+    new MagmaCreamBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.RED)
+    .sounds(BlockSoundGroup.SLIME).luminance(8).hardness(0.0f).strength(0.0f).nonOpaque()));
+
+    public static final Block BLAZE_POWDER_BLOCK = registerBlock("blaze_powder_block",
+    new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.ORANGE)
+    .sounds(BlockSoundGroup.SAND).hardness(0.5f).strength(0.5f)));
+
+    public static final Block PAPER_BLOCK = registerBlock("paper_block",
+    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MapColor.WHITE)
+    .sounds(BlockSoundGroup.MOSS_BLOCK).hardness(0.5f).strength(0.5f)));
+
+    public static final Block SUGAR_BLOCK = registerBlock("sugar_block",
+    new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.WHITE)
+    .sounds(BlockSoundGroup.SAND).hardness(0.5f).strength(0.5f)));
 
 // Registry for Blocks:
 

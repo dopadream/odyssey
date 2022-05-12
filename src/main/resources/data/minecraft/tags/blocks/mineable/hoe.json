@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "odyssey:bamboo_block",
+    "odyssey:paper_block",
+    "odyssey:rotten_flesh_block",
+    "odyssey:sugar_cane_block"
+  ]
+}
