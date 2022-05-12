@@ -4,6 +4,7 @@
   "package": "net.sydokiddo.odyssey.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "FarmlandBlockMixin"
   ],
   "client": [
   ],
