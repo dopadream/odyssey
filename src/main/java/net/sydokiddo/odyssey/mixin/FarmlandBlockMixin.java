@@ -15,6 +15,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+// Mixin to disable trampling of crops when the player is wearing boots enchanted with Feather Falling
+
 @Mixin(FarmlandBlock.class)
 public class FarmlandBlockMixin extends Block {
 
