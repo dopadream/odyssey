@@ -63,5 +63,7 @@
   "advancements.adventure.use_goat_horn.title": "Call of the Wild",
   "advancements.adventure.use_goat_horn.description": "Blow a goat horn",
   "advancements.adventure.kill_ravager.title": "Slay the Beast!",
-  "advancements.adventure.kill_ravager.description": "Defeat a Ravager"
+  "advancements.adventure.kill_ravager.description": "Defeat a Ravager",
+  "advancements.adventure.find_ancient_city.title": "Long Long Forgotten",
+  "advancements.adventure.find_ancient_city.description": "Discover an ancient city"
 }
