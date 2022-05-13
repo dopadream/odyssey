@@ -3,6 +3,7 @@
   "values": [
     "minecraft:soul_sand",
     "minecraft:soul_soil",
-    "minecraft:sculk"
+    "minecraft:sculk",
+    "minecraft:sculk_catalyst"
   ]
 }
