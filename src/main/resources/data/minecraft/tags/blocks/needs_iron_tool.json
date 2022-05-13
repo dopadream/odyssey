@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "odyssey:ruby_block"
+    "odyssey:ruby_block",
+    "odyssey:ruby_ore",
+    "odyssey:deepslate_ruby_ore"
   ]
 }

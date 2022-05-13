@@ -7,6 +7,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.sydokiddo.odyssey.Odyssey;
 import net.sydokiddo.odyssey.block.custom_blocks.MagmaCreamBlock;
@@ -56,6 +57,14 @@ public class ModBlocks {
     public static final Block SUGAR_BLOCK = registerBlock("sugar_block",
     new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.WHITE)
     .sounds(BlockSoundGroup.SAND).hardness(0.5f).strength(0.5f)));
+
+    public static final Block RUBY_ORE = registerBlock("ruby_ore",
+    new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY)
+    .sounds(BlockSoundGroup.STONE).requiresTool().hardness(3.0f).strength(3.0f), UniformIntProvider.create(3, 7)));
+
+    public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore",
+    new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY)
+    .sounds(BlockSoundGroup.DEEPSLATE).requiresTool().hardness(4.5f).strength(3.0f), UniformIntProvider.create(3, 7)));
 
 // Registry for Blocks:
 
