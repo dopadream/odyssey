@@ -1,0 +1,99 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "odyssey:item/amethyst_hookshot",
+		"particle": "odyssey:item/amethyst_hookshot"
+	},
+	"elements": [
+		{
+			"name": "Base",
+			"from": [5, 0, 6],
+			"to": [11, 7, 12],
+			"faces": {
+				"north": {"uv": [3, 3, 6, 6.5], "texture": "#0"},
+				"east": {"uv": [0, 3, 3, 6.5], "texture": "#0"},
+				"south": {"uv": [9, 3, 12, 6.5], "texture": "#0"},
+				"west": {"uv": [6, 3, 9, 6.5], "texture": "#0"},
+				"up": {"uv": [6, 3, 3, 0], "texture": "#0"},
+				"down": {"uv": [9, 0, 6, 3], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Hook",
+			"from": [5, 7, 9],
+			"to": [11, 13, 9],
+			"faces": {
+				"north": {"uv": [11, 11.5, 14, 14.5], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 3], "texture": "#0"},
+				"south": {"uv": [14, 11.5, 11, 14.5], "texture": "#0"},
+				"west": {"uv": [0, 3, 0, 0], "texture": "#0"},
+				"up": {"uv": [0, 0, 3, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 3, 0], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Hook",
+			"from": [8, 7, 6],
+			"to": [8, 13, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 10, 9]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 3], "texture": "#0"},
+				"east": {"uv": [14, 11.5, 11, 14.5], "texture": "#0"},
+				"south": {"uv": [0, 3, 0, 0], "texture": "#0"},
+				"west": {"uv": [11, 11.5, 14, 14.5], "texture": "#0"},
+				"up": {"uv": [0, 0, 3, 0], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [0, 0, 3, 0], "rotation": 90, "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, -3, -3]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, -3, -3]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 55],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -90, 55],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 45, 90],
+			"translation": [-3.5, -1.75, 0]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "Base",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"nbt": "{}",
+			"armAnimationEnabled": false,
+			"children": [0]
+		},
+		{
+			"name": "Hook",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"nbt": "{}",
+			"armAnimationEnabled": false,
+			"children": [1, 2]
+		}
+	]
+}
