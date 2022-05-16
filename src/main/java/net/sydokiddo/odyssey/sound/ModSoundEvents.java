@@ -1,6 +1,5 @@
 package net.sydokiddo.odyssey.sound;
 
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -9,6 +8,11 @@ import net.sydokiddo.odyssey.Odyssey;
 public class ModSoundEvents {
 
 // Sound Registry:
+
+// - Item Sounds:
+
+    public static final SoundEvent ITEM_ALLAY_BOTTLE_CAPTURE = registerSoundEvent("item.allay_bottle.capture");
+    public static final SoundEvent ITEM_ALLAY_BOTTLE_RELEASE = registerSoundEvent("item.allay_bottle.release");
 
 // Sound Groups:
 

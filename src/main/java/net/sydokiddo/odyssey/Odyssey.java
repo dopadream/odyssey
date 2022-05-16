@@ -1,24 +1,32 @@
 package net.sydokiddo.odyssey;
 
+import com.google.common.reflect.Reflection;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.item.Item;
 import net.sydokiddo.odyssey.block.ModBlocks;
+import net.sydokiddo.odyssey.init.MobBottleItems;
 import net.sydokiddo.odyssey.item.ModItems;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.util.UUID;
-
+@SuppressWarnings({"UnstableApiUsage", "rawtypes"})
 public class Odyssey implements ModInitializer {
-
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final String MOD_ID = "odyssey";
 
+	public static Map<EntityType<?>, Item> bottlesMap = new HashMap();
+
 	@Override
 	public void onInitialize() {
+		Reflection.initialize(MobBottleItems.class);
+		MobBottleItems.init();
+
+		put(MobBottleItems.ALLAY_BOTTLE_ITEM, EntityType.ALLAY);
 
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
@@ -29,5 +37,9 @@ public class Odyssey implements ModInitializer {
 		ModSoundEvents.registerSounds();
 
 		LOGGER.info("Hello Fabric world!");
+	}
+
+	public static void put(Item item, EntityType<?> type){
+		bottlesMap.put(type, item);
 	}
 }

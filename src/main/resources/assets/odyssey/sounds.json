@@ -1,0 +1,18 @@
+{
+  "item.allay_bottle.capture": {
+    "category": "neutral",
+    "sounds": [
+      "odyssey:item/allay_bottle/allay_capture1",
+      "odyssey:item/allay_bottle/allay_capture2"
+    ],
+    "subtitle": "subtitles.item.allay_bottle.capture"
+  },
+  "item.allay_bottle.release": {
+    "category": "neutral",
+    "sounds": [
+      "odyssey:item/allay_bottle/allay_release1",
+      "odyssey:item/allay_bottle/allay_release2"
+    ],
+    "subtitle": "subtitles.item.allay_bottle.release"
+  }
+}

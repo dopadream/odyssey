@@ -6,7 +6,10 @@
   "mixins": [
     "AxeModification",
     "CheapAnvilRenameMixin",
-    "FarmlandBlockMixin"
+    "FarmlandBlockMixin",
+    "GlassBottleItemMixin",
+    "ItemMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
   ],
