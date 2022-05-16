@@ -14,6 +14,11 @@ public class ModSoundEvents {
     public static final SoundEvent ITEM_ALLAY_BOOK_CAPTURE = registerSoundEvent("item.allay_bound_book.capture");
     public static final SoundEvent ITEM_ALLAY_BOOK_RELEASE = registerSoundEvent("item.allay_bound_book.release");
 
+    public static final SoundEvent ITEM_FLINTLOCK_LOADING_START = registerSoundEvent("item.flintlock.loading_start");
+    public static final SoundEvent ITEM_FLINTLOCK_LOADING_MIDDLE = registerSoundEvent("item.flintlock.loading_middle");
+    public static final SoundEvent ITEM_FLINTLOCK_LOADING_END = registerSoundEvent("item.flintlock.loading_end");
+    public static final SoundEvent ITEM_FLINTLOCK_SHOOT = registerSoundEvent("item.flintlock.shoot");
+
 // Sound Groups:
 
     private static SoundEvent registerSoundEvent(String name) {

@@ -14,5 +14,38 @@
       "odyssey:item/allay_bound_book/allay_release2"
     ],
     "subtitle": "subtitles.item.allay_bound_book.release"
+  },
+  "item.flintlock.loading_start": {
+    "category": "neutral",
+    "sounds": [
+      "odyssey:item/flintlock/loading_start"
+    ],
+    "subtitle": "subtitles.item.flintlock.loading"
+  },
+  "item.flintlock.loading_middle": {
+    "category": "neutral",
+    "sounds": [
+      "odyssey:item/flintlock/loading_middle1",
+      "odyssey:item/flintlock/loading_middle2",
+      "odyssey:item/flintlock/loading_middle3",
+      "odyssey:item/flintlock/loading_middle4"
+    ],
+    "subtitle": "subtitles.item.flintlock.loading"
+  },
+  "item.flintlock.loading_end": {
+    "category": "neutral",
+    "sounds": [
+      "odyssey:item/flintlock/loading_end"
+    ],
+    "subtitle": "subtitles.item.flintlock.loading_end"
+  },
+  "item.flintlock.shoot": {
+    "category": "neutral",
+    "sounds": [
+      "odyssey:item/flintlock/shoot1",
+      "odyssey:item/flintlock/shoot2",
+      "odyssey:item/flintlock/shoot3"
+    ],
+    "subtitle": "subtitles.item.flintlock.shoot"
   }
 }

@@ -17,11 +17,11 @@ public class ModItems {
     public static final Item RUBY = registerItem("ruby",
             new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
 
-    public static final Item ROSE_GOLD_INGOT = registerItem("rose_gold_ingot",
-            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+//    public static final Item ROSE_GOLD_INGOT = registerItem("rose_gold_ingot",
+//            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
 
-    public static final Item SOUL_STEEL_INGOT = registerItem("soul_steel_ingot",
-            new Item(new FabricItemSettings().fireproof().group(ModItemGroup.ODYSSEY)));
+//    public static final Item SOUL_STEEL_INGOT = registerItem("soul_steel_ingot",
+//            new Item(new FabricItemSettings().fireproof().group(ModItemGroup.ODYSSEY)));
 
     public static final Item IRON_POTATO = registerItem("iron_potato", new Item(new FabricItemSettings()
             .food(new FoodComponent.Builder().hunger(6).saturationModifier(10).alwaysEdible().statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 300, 1), 1f)
@@ -33,11 +33,11 @@ public class ModItems {
                     .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 900, 0), 1f).build())
             .rarity(Rarity.EPIC).group(ModItemGroup.ODYSSEY)));
 
-    public static final Item FLINTLOCK = registerItem("flintlock",
-            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY).maxCount(1)));
+//    public static final Item FLINTLOCK = registerItem("flintlock",
+//            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY).maxCount(1)));
 
-    public static final Item PELLET = registerItem("pellet",
-            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+//    public static final Item PELLET = registerItem("pellet",
+//            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
 
     public static final Item SOUL_POWDER = registerItem("soul_powder",
             new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
