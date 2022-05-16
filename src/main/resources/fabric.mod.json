@@ -29,6 +29,7 @@
   "mixins": [
     "odyssey.mixins.json"
   ],
+  "accessWidener" : "odyssey.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.14.3",

@@ -36,14 +36,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     public void interact(Entity entity, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         var player = this;
         var held = player.getStackInHand(hand);
-        var mobBottle = new ItemStack(Odyssey.bottlesMap.get(entity.getType()));
-        if ((held.getItem() == Items.GLASS_BOTTLE) && this.isSneaking()) {
+        var mobBottle = new ItemStack(Odyssey.booksMap.get(entity.getType()));
+        if ((held.getItem() == Items.BOOK) && this.isSneaking()) {
 
             var nbt = new NbtCompound();
             MobBottleHelper.setCompound(mobBottle, "", entity.writeNbt(nbt));
+            world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOOK_CAPTURE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
-            if (held.getItem() == Items.GLASS_BOTTLE){
-                world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOTTLE_CAPTURE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            if (held.getCount() == 1) {
                 player.setStackInHand(hand, mobBottle);
             } else {
                 held.decrement(1);

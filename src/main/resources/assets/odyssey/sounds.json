@@ -1,18 +1,18 @@
 {
-  "item.allay_bottle.capture": {
+  "item.allay_bound_book.capture": {
     "category": "neutral",
     "sounds": [
-      "odyssey:item/allay_bottle/allay_capture1",
-      "odyssey:item/allay_bottle/allay_capture2"
+      "odyssey:item/allay_bound_book/allay_capture1",
+      "odyssey:item/allay_bound_book/allay_capture2"
     ],
-    "subtitle": "subtitles.item.allay_bottle.capture"
+    "subtitle": "subtitles.item.allay_bound_book.capture"
   },
-  "item.allay_bottle.release": {
+  "item.allay_bound_book.release": {
     "category": "neutral",
     "sounds": [
-      "odyssey:item/allay_bottle/allay_release1",
-      "odyssey:item/allay_bottle/allay_release2"
+      "odyssey:item/allay_bound_book/allay_release1",
+      "odyssey:item/allay_bound_book/allay_release2"
     ],
-    "subtitle": "subtitles.item.allay_bottle.release"
+    "subtitle": "subtitles.item.allay_bound_book.release"
   }
 }

@@ -22,12 +22,12 @@ import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.MobBottleHelper;
 import org.jetbrains.annotations.Nullable;
 
-public class AllayBottleItem extends BucketItem {
+public class AllayBookItem extends BucketItem {
     public final EntityType<?> animalType;
     public final String storedMobString;
     public final Fluid fluid;
 
-    public AllayBottleItem(EntityType<?> type, Fluid fluid, Settings settings, String storedMobString) {
+    public AllayBookItem(EntityType<?> type, Fluid fluid, Settings settings, String storedMobString) {
         super(fluid, settings);
         this.animalType = type;
         this.fluid = fluid;
@@ -47,7 +47,7 @@ public class AllayBottleItem extends BucketItem {
         ItemStack held = player.getStackInHand(hand);
         BlockHitResult hitResult = raycast(world, player, this.fluid == Fluids.EMPTY ? RaycastContext.FluidHandling.SOURCE_ONLY : RaycastContext.FluidHandling.NONE);
 
-        world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOTTLE_RELEASE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+        world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOOK_RELEASE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
         if (!world.isClient) {
             double x = pos.getX() + 0.5F + facing.getOffsetX();
@@ -55,14 +55,14 @@ public class AllayBottleItem extends BucketItem {
             double z = pos.getZ() + 0.5F + facing.getOffsetZ();
             BlockPos spawnPos = new BlockPos(x, y, z);
 
-            // spawn the mob
+            // Spawns Allay
+
             Entity mob = MobBottleHelper.spawn(animalType, (ServerWorld)world, spawnPos, SpawnReason.BUCKET);
             if (mob != null) {
 
                 NbtCompound data = MobBottleHelper.getCompound(held, storedMobString);
-                if (!data.isEmpty()) {
+                if (!data.isEmpty())
                     mob.readCustomDataFromNbt(data);
-                }
 
                 this.placeFluid(player, world, pos, hitResult);
                 world.spawnEntity(mob);
@@ -71,13 +71,13 @@ public class AllayBottleItem extends BucketItem {
         player.swingHand(hand);
 
         if (!player.isCreative())
-            player.setStackInHand(hand, new ItemStack(Items.GLASS_BOTTLE));
+            player.setStackInHand(hand, new ItemStack(Items.BOOK));
 
         return ActionResult.SUCCESS;
     }
 
     @Override
     protected void playEmptyingSound(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos) {
-        world.playSound(player, pos, ModSoundEvents.ITEM_ALLAY_BOTTLE_RELEASE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+        world.playSound(player, pos, ModSoundEvents.ITEM_ALLAY_BOOK_RELEASE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
     }
 }

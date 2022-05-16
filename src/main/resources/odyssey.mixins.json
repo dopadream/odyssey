@@ -7,7 +7,7 @@
     "AxeModification",
     "CheapAnvilRenameMixin",
     "FarmlandBlockMixin",
-    "GlassBottleItemMixin",
+    "BookItemMixin",
     "ItemMixin",
     "PlayerEntityMixin"
   ],

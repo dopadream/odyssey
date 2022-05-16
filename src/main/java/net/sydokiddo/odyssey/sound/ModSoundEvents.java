@@ -11,8 +11,8 @@ public class ModSoundEvents {
 
 // - Item Sounds:
 
-    public static final SoundEvent ITEM_ALLAY_BOTTLE_CAPTURE = registerSoundEvent("item.allay_bottle.capture");
-    public static final SoundEvent ITEM_ALLAY_BOTTLE_RELEASE = registerSoundEvent("item.allay_bottle.release");
+    public static final SoundEvent ITEM_ALLAY_BOOK_CAPTURE = registerSoundEvent("item.allay_bound_book.capture");
+    public static final SoundEvent ITEM_ALLAY_BOOK_RELEASE = registerSoundEvent("item.allay_bound_book.release");
 
 // Sound Groups:
 

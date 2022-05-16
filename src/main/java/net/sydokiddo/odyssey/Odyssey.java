@@ -5,7 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.sydokiddo.odyssey.block.ModBlocks;
-import net.sydokiddo.odyssey.init.MobBottleItems;
+import net.sydokiddo.odyssey.init.MobBookItems;
 import net.sydokiddo.odyssey.item.ModItems;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import org.slf4j.Logger;
@@ -19,14 +19,14 @@ public class Odyssey implements ModInitializer {
 
 	public static final String MOD_ID = "odyssey";
 
-	public static Map<EntityType<?>, Item> bottlesMap = new HashMap();
+	public static Map<EntityType<?>, Item> booksMap = new HashMap();
 
 	@Override
 	public void onInitialize() {
-		Reflection.initialize(MobBottleItems.class);
-		MobBottleItems.init();
+		Reflection.initialize(MobBookItems.class);
+		MobBookItems.init();
 
-		put(MobBottleItems.ALLAY_BOTTLE_ITEM, EntityType.ALLAY);
+		put(MobBookItems.ALLAY_BOOK_ITEM, EntityType.ALLAY);
 
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
@@ -40,6 +40,6 @@ public class Odyssey implements ModInitializer {
 	}
 
 	public static void put(Item item, EntityType<?> type){
-		bottlesMap.put(type, item);
+		booksMap.put(type, item);
 	}
 }

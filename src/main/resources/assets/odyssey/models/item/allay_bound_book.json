@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "odyssey:item/allay_bottle"
+    "layer0": "odyssey:item/allay_bound_book"
   }
 }
