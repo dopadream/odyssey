@@ -5,10 +5,12 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AxeModification",
+    "BookItemMixin",
     "CheapAnvilRenameMixin",
     "FarmlandBlockMixin",
-    "BookItemMixin",
     "ItemMixin",
+    "MixinFluidBlock",
+    "MixinLavaFluid",
     "PlayerEntityMixin"
   ],
   "client": [
