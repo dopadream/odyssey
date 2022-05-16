@@ -71,5 +71,7 @@
   "advancements.adventure.kill_ravager.title": "Slay the Beast!",
   "advancements.adventure.kill_ravager.description": "Defeat a Ravager",
   "advancements.adventure.find_ancient_city.title": "Long Long Forgotten",
-  "advancements.adventure.find_ancient_city.description": "Discover an ancient city"
+  "advancements.adventure.find_ancient_city.description": "Discover an ancient city",
+  "advancements.husbandry.capture_allay.title": "Spellbound",
+  "advancements.husbandry.capture_allay.description": "Capture an Allay using a book"
 }
