@@ -45,6 +45,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 cir.setReturnValue(ActionResult.PASS);
             }
 
+            // Sets the name of the Allay Bound Book to whatever the Allay's name is
+
             if (entity.hasCustomName()) {
                 mobBottle.setCustomName(entity.getCustomName());
             }

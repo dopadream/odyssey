@@ -10,6 +10,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+// Decreases book item stack by 1 if the player captures an Allay with one
+
 @Mixin(BucketItem.class)
 public class BookItemMixin {
     @Inject(method = "getEmptiedStack", at = @At(value = "HEAD"), cancellable = true)

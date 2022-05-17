@@ -13,6 +13,8 @@ import java.util.Random;
 @Mixin(LavaFluid.class)
 public class MixinLavaFluid {
 
+// Mixin to allow Deepslate generators to work at Y=8 or lower with a 12.5% chance, and a 100% chance of working below Y=0
+
     Random random = new Random();
 
     @ModifyArg(method = "flow",

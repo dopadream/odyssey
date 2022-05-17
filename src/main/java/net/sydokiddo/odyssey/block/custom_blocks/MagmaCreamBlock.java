@@ -17,6 +17,8 @@ public class MagmaCreamBlock extends TransparentBlock {
         super(settings);
     }
 
+    // Allows for the Magma Cream Block to negate fall damage similarly to a Slime Block
+
     public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
         if (entity.bypassesLandingEffects()) {
             super.onLandedUpon(world, state, pos, entity, fallDistance);
@@ -25,6 +27,8 @@ public class MagmaCreamBlock extends TransparentBlock {
         }
 
     }
+
+    // Allows for the Magma Cream Block to deal damage when standing on it similarly to magma, also negatable by wearing Frost Walker boots or by crouching
 
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         double d = Math.abs(entity.getVelocity().y);
@@ -39,9 +43,13 @@ public class MagmaCreamBlock extends TransparentBlock {
         super.onSteppedOn(world, pos, state, entity);
     }
 
+    // Allows for the block to be transparent
+
     public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
         return stateFrom.isOf(this) || super.isSideInvisible(state, stateFrom, direction);
     }
+
+    // Allows for entities to bounce on the Magma Cream Block similarly to a Slime Block
 
     public void onEntityLand(BlockView world, Entity entity) {
         if (entity.bypassesLandingEffects()) {

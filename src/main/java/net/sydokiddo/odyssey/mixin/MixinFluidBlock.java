@@ -10,6 +10,8 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.util.Random;
 
+// Mixin to allow Cobbled Deepslate generators to work at Y=8 or lower with a 12.5% chance, and a 100% chance of working below Y=0
+
 @Mixin(FluidBlock.class)
 public class MixinFluidBlock {
 
