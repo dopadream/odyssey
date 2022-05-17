@@ -61,11 +61,17 @@ public class AllayBookItem extends BucketItem {
             if (mob != null) {
 
                 NbtCompound data = MobBottleHelper.getCompound(held, storedMobString);
+
                 if (!data.isEmpty())
                     mob.readCustomDataFromNbt(data);
 
+                if (context.getStack().hasCustomName()) {
+                    mob.setCustomName(context.getStack().getName());
+                }
+
                 this.placeFluid(player, world, pos, hitResult);
                 world.spawnEntity(mob);
+                player.getItemCooldownManager().set(this, 40);
             }
         }
         player.swingHand(hand);

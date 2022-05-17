@@ -1,9 +1,6 @@
 package net.sydokiddo.odyssey.mixin;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
@@ -28,6 +25,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     @Shadow public abstract PlayerInventory getInventory();
     @Shadow @Nullable public abstract ItemEntity dropItem(ItemStack stack, boolean retainOwnership);
 
+    @Shadow protected abstract void dropInventory();
+
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -37,10 +36,20 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         var player = this;
         var held = player.getStackInHand(hand);
         var mobBottle = new ItemStack(Odyssey.booksMap.get(entity.getType()));
+
         if ((held.getItem() == Items.BOOK) && this.isSneaking()) {
+
+            if (held.isEmpty() || held.getItem() != Items.BOOK) {
+                cir.setReturnValue(ActionResult.PASS);
+            }
+
+            if (entity.hasCustomName()) {
+                held.setCustomName(entity.getCustomName());
+            }
 
             var nbt = new NbtCompound();
             MobBottleHelper.setCompound(mobBottle, "", entity.writeNbt(nbt));
+
             world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOOK_CAPTURE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
             if (held.getCount() == 1) {

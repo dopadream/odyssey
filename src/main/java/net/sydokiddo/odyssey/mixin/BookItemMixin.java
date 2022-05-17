@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BucketItem.class)
 public class BookItemMixin {
     @Inject(method = "getEmptiedStack", at = @At(value = "HEAD"), cancellable = true)
-    private static void stackableBottle(ItemStack stack, PlayerEntity player, CallbackInfoReturnable<ItemStack> cir) {
+    private static void stackableBook(ItemStack stack, PlayerEntity player, CallbackInfoReturnable<ItemStack> cir) {
         if (MobBottleHelper.isModified(stack) && stack.getCount() > 1) {
             MobBottleHelper.insertNewItem(player, new ItemStack(Items.BOOK));
             stack.decrement(1);

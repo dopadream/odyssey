@@ -16,8 +16,8 @@ public class MobBottleHelper extends Item {
         super(settings);
     }
 
-    public static <T extends Entity> T spawn(EntityType<?> type, ServerWorld world, BlockPos pos, SpawnReason reason) {
-        return (T) type.create(world, null, null, null, pos, reason, false, false);
+    public static <T extends Entity> T spawn(EntityType<T> type, ServerWorld world, BlockPos pos, SpawnReason reason) {
+        return type.create(world, null, null, null, pos, reason, false, false);
     }
 
     public static NbtCompound getCompound(ItemStack stack, String tag) {
