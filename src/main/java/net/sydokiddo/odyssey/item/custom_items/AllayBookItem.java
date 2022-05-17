@@ -71,7 +71,7 @@ public class AllayBookItem extends BucketItem {
 
                 this.placeFluid(player, world, pos, hitResult);
                 world.spawnEntity(mob);
-                player.getItemCooldownManager().set(this, 40);
+                player.getItemCooldownManager().set(this, 30);
             }
         }
         player.swingHand(hand);

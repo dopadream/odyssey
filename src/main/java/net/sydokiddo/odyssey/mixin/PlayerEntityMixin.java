@@ -44,7 +44,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             }
 
             if (entity.hasCustomName()) {
-                held.setCustomName(entity.getCustomName());
+                mobBottle.setCustomName(entity.getCustomName());
             }
 
             var nbt = new NbtCompound();
