@@ -37,6 +37,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         var held = player.getStackInHand(hand);
         var mobBottle = new ItemStack(Odyssey.booksMap.get(entity.getType()));
 
+        // Detects if the player has a book in hand and is sneaking in order to capture an Allay
+
         if ((held.getItem() == Items.BOOK) && this.isSneaking()) {
 
             if (held.isEmpty() || held.getItem() != Items.BOOK) {
@@ -46,6 +48,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             if (entity.hasCustomName()) {
                 mobBottle.setCustomName(entity.getCustomName());
             }
+
+            // Sets the NBT data of the Allay to the Allay Bound Book
 
             var nbt = new NbtCompound();
             MobBottleHelper.setCompound(mobBottle, "", entity.writeNbt(nbt));
@@ -63,6 +67,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             entity.discard();
         }
     }
+
+    // Drops the Allay Bound Book if the player's inventory is full
 
     public void addOrDropStack(PlayerEntityMixin player, ItemStack stack) {
         if (!player.getInventory().insertStack(stack)) {
