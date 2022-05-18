@@ -36,7 +36,7 @@ public class MagmaCreamBlock extends TransparentBlock {
             double e = 0.4D + d * 0.2D;
             entity.setVelocity(entity.getVelocity().multiply(e, 1.0D, e));
         }
-        if (!entity.isFireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
+        if (!entity.isFireImmune() && !entity.isSneaking() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
             entity.damage(DamageSource.HOT_FLOOR, 1.0F);
         }
 

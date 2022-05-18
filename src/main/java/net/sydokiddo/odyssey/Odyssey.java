@@ -27,16 +27,11 @@ public class Odyssey implements ModInitializer {
 		MobBookItems.init();
 
 		put(MobBookItems.ALLAY_BOOK_ITEM, EntityType.ALLAY);
-
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
 		ModSoundEvents.registerSounds();
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Thank you for downloading Odyssey! :)");
 	}
 
 	public static void put(Item item, EntityType<?> type){
