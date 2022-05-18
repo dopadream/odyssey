@@ -11,8 +11,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
-public class MobBottleHelper extends Item {
-    public MobBottleHelper(Settings settings) {
+public class MobBookHelper extends Item {
+    public MobBookHelper(Settings settings) {
         super(settings);
     }
 
@@ -41,12 +41,6 @@ public class MobBottleHelper extends Item {
 
     public static void setCompound(ItemStack stack, String tag, NbtCompound cmp) {
         getNBT(stack).put(tag, cmp);
-    }
-
-    public static void addOrDropStack(PlayerEntity player, ItemStack stack) {
-        if (!player.getInventory().insertStack(stack)) {
-            player.dropItem(stack, true);
-        }
     }
 
     public static void insertNewItem(PlayerEntity player, ItemStack stack2) {

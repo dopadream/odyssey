@@ -12,13 +12,15 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.sydokiddo.odyssey.Odyssey;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
-import net.sydokiddo.odyssey.util.MobBottleHelper;
+import net.sydokiddo.odyssey.util.MobBookHelper;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+// Issue: (Allays don't seem to remember how to pathfind to note blocks once captured in a book)
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
@@ -35,7 +37,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     public void interact(Entity entity, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         var player = this;
         var held = player.getStackInHand(hand);
-        var mobBottle = new ItemStack(Odyssey.booksMap.get(entity.getType()));
+        var mobBook = new ItemStack(Odyssey.booksMap.get(entity.getType()));
 
         // Detects if the player has a book in hand and is sneaking in order to capture an Allay
 
@@ -45,24 +47,22 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 cir.setReturnValue(ActionResult.PASS);
             }
 
-            // Sets the name of the Allay Bound Book to whatever the Allay's name is
-
             if (entity.hasCustomName()) {
-                mobBottle.setCustomName(entity.getCustomName());
+                mobBook.setCustomName(entity.getCustomName());
             }
 
             // Sets the NBT data of the Allay to the Allay Bound Book
 
             var nbt = new NbtCompound();
-            MobBottleHelper.setCompound(mobBottle, "", entity.writeNbt(nbt));
+            MobBookHelper.setCompound(mobBook, "", entity.writeNbt(nbt));
 
             world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOOK_CAPTURE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
             if (held.getCount() == 1) {
-                player.setStackInHand(hand, mobBottle);
+                player.setStackInHand(hand, mobBook);
             } else {
                 held.decrement(1);
-                addOrDropStack(player, mobBottle);
+                addOrDropStack(player, mobBook);
             }
 
             player.swingHand(hand);

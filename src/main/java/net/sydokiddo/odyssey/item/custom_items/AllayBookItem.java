@@ -19,7 +19,7 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
-import net.sydokiddo.odyssey.util.MobBottleHelper;
+import net.sydokiddo.odyssey.util.MobBookHelper;
 import org.jetbrains.annotations.Nullable;
 
 public class AllayBookItem extends BucketItem {
@@ -57,12 +57,15 @@ public class AllayBookItem extends BucketItem {
 
             // Spawns Allay
 
-            Entity mob = MobBottleHelper.spawn(animalType, (ServerWorld)world, spawnPos, SpawnReason.BUCKET);
+            Entity mob = MobBookHelper.spawn(animalType, (ServerWorld)world, spawnPos, SpawnReason.BUCKET);
             if (mob != null) {
 
-                NbtCompound data = MobBottleHelper.getCompound(held, storedMobString);
+                NbtCompound data = MobBookHelper.getCompound(held, storedMobString);
 
                 if (!data.isEmpty())
+                    mob.readCustomDataFromNbt(data);
+
+                if (data.isEmpty())
                     mob.readCustomDataFromNbt(data);
 
                 if (context.getStack().hasCustomName()) {
