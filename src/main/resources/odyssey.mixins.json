@@ -11,7 +11,8 @@
     "ItemMixin",
     "MixinFluidBlock",
     "MixinLavaFluid",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "villagerInitMixin"
   ],
   "client": [
   ],
