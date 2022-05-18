@@ -24,7 +24,8 @@ public class OdysseyClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlocks(
                 RenderLayer.getTranslucent(),
 
-                ModBlocks.MAGMA_CREAM_BLOCK
+                ModBlocks.MAGMA_CREAM_BLOCK,
+                ModBlocks.FIREFLY_LANTERN
 
         );
     }
