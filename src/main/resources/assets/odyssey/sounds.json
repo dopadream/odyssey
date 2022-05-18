@@ -47,5 +47,120 @@
       "odyssey:item/flintlock/shoot3"
     ],
     "subtitle": "subtitles.item.flintlock.shoot"
+  },
+  "block.firefly_lantern.place": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/firefly_lantern/place1",
+      "odyssey:block/firefly_lantern/place2",
+      "odyssey:block/firefly_lantern/place3",
+      "odyssey:block/firefly_lantern/place4",
+      "odyssey:block/firefly_lantern/place5",
+      "odyssey:block/firefly_lantern/place6"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.firefly_lantern.break": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/firefly_lantern/break1",
+      "odyssey:block/firefly_lantern/break2",
+      "odyssey:block/firefly_lantern/break3",
+      "odyssey:block/firefly_lantern/break4",
+      "odyssey:block/firefly_lantern/break5",
+      "odyssey:block/firefly_lantern/break6"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.firefly_lantern.hit": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/firefly_lantern/break1",
+      "odyssey:block/firefly_lantern/break2",
+      "odyssey:block/firefly_lantern/break3",
+      "odyssey:block/firefly_lantern/break4",
+      "odyssey:block/firefly_lantern/break5",
+      "odyssey:block/firefly_lantern/break6"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.firefly_lantern.step": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/firefly_lantern/place1",
+      "odyssey:block/firefly_lantern/place2",
+      "odyssey:block/firefly_lantern/place3",
+      "odyssey:block/firefly_lantern/place4",
+      "odyssey:block/firefly_lantern/place5",
+      "odyssey:block/firefly_lantern/place6"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.firefly_lantern.fall": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/firefly_lantern/break1",
+      "odyssey:block/firefly_lantern/break2",
+      "odyssey:block/firefly_lantern/break3",
+      "odyssey:block/firefly_lantern/break4",
+      "odyssey:block/firefly_lantern/break5",
+      "odyssey:block/firefly_lantern/break6"
+    ]
+  },
+  "block.paper_block.place": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/paper_block/break1",
+      "odyssey:block/paper_block/break2",
+      "odyssey:block/paper_block/break3",
+      "odyssey:block/paper_block/break4",
+      "odyssey:block/paper_block/break5"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.paper_block.break": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/paper_block/break1",
+      "odyssey:block/paper_block/break2",
+      "odyssey:block/paper_block/break3",
+      "odyssey:block/paper_block/break4",
+      "odyssey:block/paper_block/break5"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.paper_block.hit": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/paper_block/break1",
+      "odyssey:block/paper_block/break2",
+      "odyssey:block/paper_block/break3",
+      "odyssey:block/paper_block/break4",
+      "odyssey:block/paper_block/break5"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.paper_block.step": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/paper_block/step1",
+      "odyssey:block/paper_block/step2",
+      "odyssey:block/paper_block/step3",
+      "odyssey:block/paper_block/step4",
+      "odyssey:block/paper_block/step5",
+      "odyssey:block/paper_block/step6"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.paper_block.fall": {
+    "category": "block",
+    "sounds": [
+      "odyssey:block/paper_block/step1",
+      "odyssey:block/paper_block/step2",
+      "odyssey:block/paper_block/step3",
+      "odyssey:block/paper_block/step4",
+      "odyssey:block/paper_block/step5",
+      "odyssey:block/paper_block/step6"
+    ]
   }
 }

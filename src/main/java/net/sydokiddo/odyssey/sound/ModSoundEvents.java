@@ -1,5 +1,6 @@
 package net.sydokiddo.odyssey.sound;
 
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -19,7 +20,29 @@ public class ModSoundEvents {
     public static final SoundEvent ITEM_FLINTLOCK_LOADING_END = registerSoundEvent("item.flintlock.loading_end");
     public static final SoundEvent ITEM_FLINTLOCK_SHOOT = registerSoundEvent("item.flintlock.shoot");
 
+// - Block Sounds:
+
+    public static final SoundEvent BLOCK_PAPER_BLOCK_BREAK = registerSoundEvent("block.paper_block.break");
+    public static final SoundEvent BLOCK_PAPER_BLOCK_STEP = registerSoundEvent("block.paper_block.step");
+    public static final SoundEvent BLOCK_PAPER_BLOCK_PLACE = registerSoundEvent("block.paper_block.place");
+    public static final SoundEvent BLOCK_PAPER_BLOCK_HIT = registerSoundEvent("block.paper_block.hit");
+    public static final SoundEvent BLOCK_PAPER_BLOCK_FALL = registerSoundEvent("block.paper_block.fall");
+
+    public static final SoundEvent BLOCK_FIREFLY_LANTERN_BREAK = registerSoundEvent("block.firefly_lantern.break");
+    public static final SoundEvent BLOCK_FIREFLY_LANTERN_STEP = registerSoundEvent("block.firefly_lantern.step");
+    public static final SoundEvent BLOCK_FIREFLY_LANTERN_PLACE = registerSoundEvent("block.firefly_lantern.place");
+    public static final SoundEvent BLOCK_FIREFLY_LANTERN_HIT = registerSoundEvent("block.firefly_lantern.hit");
+    public static final SoundEvent BLOCK_FIREFLY_LANTERN_FALL = registerSoundEvent("block.firefly_lantern.fall");
+
 // Sound Groups:
+
+    public static final BlockSoundGroup PAPER_BLOCK = new BlockSoundGroup(1f, 1f,
+            ModSoundEvents.BLOCK_PAPER_BLOCK_BREAK, ModSoundEvents.BLOCK_PAPER_BLOCK_STEP, ModSoundEvents.BLOCK_PAPER_BLOCK_PLACE,
+            ModSoundEvents.BLOCK_PAPER_BLOCK_HIT, ModSoundEvents.BLOCK_PAPER_BLOCK_FALL);
+
+    public static final BlockSoundGroup FIREFLY_LANTERN = new BlockSoundGroup(1f, 1f,
+            ModSoundEvents.BLOCK_FIREFLY_LANTERN_BREAK, ModSoundEvents.BLOCK_FIREFLY_LANTERN_STEP, ModSoundEvents.BLOCK_FIREFLY_LANTERN_PLACE,
+            ModSoundEvents.BLOCK_FIREFLY_LANTERN_HIT, ModSoundEvents.BLOCK_FIREFLY_LANTERN_FALL);
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(Odyssey.MOD_ID, name);

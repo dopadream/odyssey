@@ -13,6 +13,7 @@ import net.sydokiddo.odyssey.Odyssey;
 import net.sydokiddo.odyssey.block.custom_blocks.MagmaCreamBlock;
 import net.sydokiddo.odyssey.block.custom_blocks.ModPillarBlock;
 import net.sydokiddo.odyssey.item.ModItemGroup;
+import net.sydokiddo.odyssey.sound.ModSoundEvents;
 
 public class ModBlocks {
 
@@ -24,7 +25,7 @@ public class ModBlocks {
 
     public static final Block FIREFLY_LANTERN = registerBlock("firefly_lantern",
     new LanternBlock(FabricBlockSettings.of(Material.METAL, MapColor.IRON_GRAY)
-    .sounds(BlockSoundGroup.LANTERN).requiresTool().luminance(10).hardness(3.5f).strength(3.5f)));
+    .sounds(ModSoundEvents.FIREFLY_LANTERN).requiresTool().luminance(10).hardness(3.5f).strength(3.5f)));
 
     public static final Block GUNPOWDER_BLOCK = registerBlock("gunpowder_block",
     new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY)
@@ -52,7 +53,7 @@ public class ModBlocks {
 
     public static final Block PAPER_BLOCK = registerBlock("paper_block",
     new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MapColor.WHITE)
-    .sounds(BlockSoundGroup.MOSS_BLOCK).hardness(0.5f).strength(0.5f)));
+    .sounds(ModSoundEvents.PAPER_BLOCK).hardness(0.5f).strength(0.5f)));
 
     public static final Block SUGAR_BLOCK = registerBlock("sugar_block",
     new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.WHITE)
