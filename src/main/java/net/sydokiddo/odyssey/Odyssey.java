@@ -8,6 +8,8 @@ import net.sydokiddo.odyssey.block.ModBlocks;
 import net.sydokiddo.odyssey.init.MobBookItems;
 import net.sydokiddo.odyssey.item.ModItems;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
+import net.sydokiddo.world.feature.ModConfiguredFeatures;
+import net.sydokiddo.world.gen.ModWorldGen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.HashMap;
@@ -31,6 +33,8 @@ public class Odyssey implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
 		ModSoundEvents.registerSounds();
+		ModWorldGen.generateModWorldGen();
+		ModConfiguredFeatures.registerConfiguredFeatures();
 
 		LOGGER.info("Thank you for downloading Odyssey! :)");
 	}
