@@ -1,37 +1,50 @@
 package net.sydokiddo.odyssey.mixin;
 
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.Dynamic;
+import net.minecraft.advancement.AdvancementManager;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraft.world.event.listener.VibrationListener;
 import net.sydokiddo.odyssey.Odyssey;
+import net.sydokiddo.odyssey.init.MobBookItems;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.MobBookHelper;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Objects;
+
 // Issue: (Allays don't seem to remember how to pathfind to note blocks once captured in a book)
+
+// Issue: (Capturing an Allay that is sitting in a boat deletes the boat and the book)
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
-    @Shadow public abstract PlayerInventory getInventory();
-    @Shadow @Nullable public abstract ItemEntity dropItem(ItemStack stack, boolean retainOwnership);
-
-    @Shadow protected abstract void dropInventory();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
+
+    @Shadow public abstract PlayerInventory getInventory();
+    @Shadow @Nullable public abstract ItemEntity dropItem(ItemStack stack, boolean retainOwnership);
+
+    @Shadow protected abstract void dropInventory();
 
     @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
     public void interact(Entity entity, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
