@@ -15,6 +15,7 @@ import java.util.Map;
 
 @SuppressWarnings({"UnstableApiUsage", "rawtypes"})
 public class Odyssey implements ModInitializer {
+
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final String MOD_ID = "odyssey";

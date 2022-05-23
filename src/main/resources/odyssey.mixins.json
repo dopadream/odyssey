@@ -7,11 +7,13 @@
     "AxeModification",
     "BookItemMixin",
     "CheapAnvilRenameMixin",
+    "EggEntityMixin",
     "FarmlandBlockMixin",
     "ItemMixin",
     "MixinFluidBlock",
     "MixinLavaFluid",
     "PlayerEntityMixin",
+    "SnowballEntityMixin",
     "villagerInitMixin"
   ],
   "client": [
