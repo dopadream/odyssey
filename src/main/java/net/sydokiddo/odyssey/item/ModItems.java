@@ -30,6 +30,9 @@ public class ModItems {
     public static final Item SOUL_POWDER = registerItem("soul_powder",
             new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
 
+    public static final Item GLASS_SHARD = registerItem("glass_shard",
+            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+
 // To Implement Later:
 
 //    public static final Item ROSE_GOLD_INGOT = registerItem("rose_gold_ingot",
