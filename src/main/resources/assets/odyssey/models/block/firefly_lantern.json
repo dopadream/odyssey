@@ -4,7 +4,7 @@
 	"textures": {
 		"1": "odyssey:block/firefly_lantern",
 		"2": "odyssey:block/firefly_lantern_inner",
-		"particle": "odyssey:block/firefly_lantern_inner"
+		"particle": "odyssey:block/firefly_lantern"
 	},
 	"elements": [
 		{

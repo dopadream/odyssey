@@ -34,10 +34,6 @@ public class ModSoundEvents {
     public static final SoundEvent BLOCK_FIREFLY_LANTERN_HIT = registerSoundEvent("block.firefly_lantern.hit");
     public static final SoundEvent BLOCK_FIREFLY_LANTERN_FALL = registerSoundEvent("block.firefly_lantern.fall");
 
-// - Other Sounds:
-
-    public static final SoundEvent SCREENSHOT = registerSoundEvent("game.gui.screenshot");
-
 // Sound Groups:
 
     public static final BlockSoundGroup PAPER_BLOCK = new BlockSoundGroup(1f, 1f,
