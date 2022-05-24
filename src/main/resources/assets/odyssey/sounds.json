@@ -162,5 +162,11 @@
       "odyssey:block/paper_block/step5",
       "odyssey:block/paper_block/step6"
     ]
+  },
+  "game.gui.screenshot": {
+    "category": "master",
+    "sounds": [
+      "odyssey:gui/screenshot"
+    ]
   }
 }
