@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.sydokiddo.odyssey.block.ModBlocks;
+import net.sydokiddo.odyssey.effect.ModEffects;
 import net.sydokiddo.odyssey.init.MobBookItems;
 import net.sydokiddo.odyssey.item.ModItems;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
@@ -33,6 +34,7 @@ public class Odyssey implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
 		ModSoundEvents.registerSounds();
+		ModEffects.registerEffects();
 		ModWorldGen.generateModWorldGen();
 		ModConfiguredFeatures.registerConfiguredFeatures();
 

@@ -10,9 +10,11 @@
     "EggEntityMixin",
     "FarmlandBlockMixin",
     "ItemMixin",
+    "MainMixin",
     "MixinFluidBlock",
     "MixinLavaFluid",
     "PlayerEntityMixin",
+    "ScreenshotRecorderMixin",
     "SnowballEntityMixin",
     "villagerInitMixin"
   ],
