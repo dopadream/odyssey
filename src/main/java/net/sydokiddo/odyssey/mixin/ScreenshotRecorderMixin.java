@@ -40,7 +40,7 @@ public abstract class ScreenshotRecorderMixin {
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(newImage, null);
 
-            mc.inGameHud.getChatHud().addMessage(Text.of("Successfully copied screenshot to clipboard"));
+            mc.inGameHud.getChatHud().addMessage(Text.of("Screenshot copied to clipboard"));
         } catch(Exception e) {
             e.printStackTrace();
         }
