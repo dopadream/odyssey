@@ -3,36 +3,27 @@ package net.sydokiddo.odyssey.item.custom_items;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.passive.AllayBrain;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.entity.EntityChangeListener;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.MobBookHelper;
-import org.jetbrains.annotations.Nullable;
 
-public class AllayBookItem extends BucketItem {
+public class AllayBookItem extends Item {
     public final EntityType<?> animalType;
     public final String storedMobString;
-    public final Fluid fluid;
 
     public AllayBookItem(EntityType<?> type, Fluid fluid, Settings settings, String storedMobString) {
-        super(fluid, settings);
+        super(settings);
         this.animalType = type;
-        this.fluid = fluid;
         this.storedMobString = storedMobString;
     }
 
@@ -47,7 +38,6 @@ public class AllayBookItem extends BucketItem {
         Direction facing = context.getSide();
         Hand hand = context.getHand();
         ItemStack held = player.getStackInHand(hand);
-        BlockHitResult hitResult = raycast(world, player, this.fluid == Fluids.EMPTY ? RaycastContext.FluidHandling.SOURCE_ONLY : RaycastContext.FluidHandling.NONE);
 
         world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOOK_RELEASE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
@@ -74,7 +64,6 @@ public class AllayBookItem extends BucketItem {
                     mob.setCustomName(context.getStack().getName());
                 }
 
-                this.placeFluid(player, world, pos, hitResult);
                 world.spawnEntity(mob);
                 player.getItemCooldownManager().set(this, 30);
             }
@@ -85,10 +74,5 @@ public class AllayBookItem extends BucketItem {
             player.setStackInHand(hand, new ItemStack(Items.BOOK));
 
         return ActionResult.SUCCESS;
-    }
-
-    @Override
-    protected void playEmptyingSound(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos) {
-        world.playSound(player, pos, ModSoundEvents.ITEM_ALLAY_BOOK_RELEASE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
     }
 }
