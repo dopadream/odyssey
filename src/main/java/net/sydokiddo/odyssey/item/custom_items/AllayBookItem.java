@@ -4,7 +4,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
@@ -20,8 +19,9 @@ import net.sydokiddo.odyssey.util.MobBookHelper;
 public class AllayBookItem extends Item {
     public final EntityType<?> animalType;
     public final String storedMobString;
+    public World world;
 
-    public AllayBookItem(EntityType<?> type, Fluid fluid, Settings settings, String storedMobString) {
+    public AllayBookItem(EntityType<?> type, Settings settings, String storedMobString) {
         super(settings);
         this.animalType = type;
         this.storedMobString = storedMobString;
@@ -54,11 +54,7 @@ public class AllayBookItem extends Item {
 
                 NbtCompound data = MobBookHelper.getCompound(held, storedMobString);
 
-                if (!data.isEmpty())
-                    mob.readCustomDataFromNbt(data);
-
-                if (data.isEmpty())
-                    mob.readCustomDataFromNbt(data);
+                mob.readCustomDataFromNbt(data);
 
                 if (context.getStack().hasCustomName()) {
                     mob.setCustomName(context.getStack().getName());

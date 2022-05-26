@@ -1,7 +1,6 @@
 package net.sydokiddo.odyssey.init;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -15,7 +14,7 @@ public class MobBookItems {
     public static void init(){}
 
     private static Item registerMobBook() {
-        var item = new AllayBookItem(EntityType.ALLAY, Fluids.EMPTY, Settings.MOB_BOOK, "");
+        var item = new AllayBookItem(EntityType.ALLAY, Settings.MOB_BOOK, "");
         return Registry.register(Registry.ITEM, new Identifier(Odyssey.MOD_ID, "allay_bound_book"), item);
     }
 

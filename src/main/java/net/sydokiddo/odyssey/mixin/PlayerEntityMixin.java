@@ -1,34 +1,24 @@
 package net.sydokiddo.odyssey.mixin;
 
-import com.mojang.serialization.DataResult;
-import com.mojang.serialization.Dynamic;
-import net.minecraft.advancement.AdvancementManager;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtOps;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import net.minecraft.world.event.listener.VibrationListener;
 import net.sydokiddo.odyssey.Odyssey;
-import net.sydokiddo.odyssey.init.MobBookItems;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.MobBookHelper;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Objects;
 
 // Issue: (Allays don't seem to remember how to pathfind to note blocks once captured in a book)
 
@@ -54,11 +44,19 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
         // Detects if the player has a book in hand and is sneaking in order to capture an Allay
 
-        if ((held.getItem() == Items.BOOK) && this.isSneaking()) {
+        if ((held.getItem() == Items.BOOK) && this.isSneaking() && !entity.hasVehicle()) {
+
+            // Prevents capturing of Allay if the player is not holding a book
 
             if (held.isEmpty() || held.getItem() != Items.BOOK) {
                 cir.setReturnValue(ActionResult.PASS);
             }
+
+            if (entity.hasVehicle()) {
+                cir.setReturnValue(ActionResult.PASS);
+            }
+
+            // Sets the name of the Allay Bound Book to the Allay's name
 
             if (entity.hasCustomName()) {
                 mobBook.setCustomName(entity.getCustomName());
@@ -68,6 +66,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
             var nbt = new NbtCompound();
             MobBookHelper.setCompound(mobBook, "", entity.writeNbt(nbt));
+
+            entity.dismountVehicle();
 
             world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOOK_CAPTURE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
