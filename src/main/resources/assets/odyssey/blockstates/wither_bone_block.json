@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "odyssey:block/wither_bone_block_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "odyssey:block/wither_bone_block"
+    },
+    "axis=z": {
+      "model": "odyssey:block/wither_bone_block_horizontal",
+      "x": 90
+    }
+  }
+}

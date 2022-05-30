@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "withered_bonemeal",
+  "ingredients": [
+    {
+      "item": "odyssey:wither_bone_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "odyssey:wither_bone_meal"
+  }
+}

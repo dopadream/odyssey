@@ -33,6 +33,15 @@ public class ModItems {
     public static final Item GLASS_SHARD = registerItem("glass_shard",
             new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
 
+    public static final Item WITHER_BONE_MEAL = registerItem("wither_bone_meal",
+            new WitherBoneMealItem(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+
+    public static final Item WITHER_BONE = registerItem("wither_bone",
+            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+
+    public static final Item WITHER_SKULL_FRAGMENT = registerItem("wither_skull_fragment",
+            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+
 // To Implement Later:
 
 //    public static final Item ROSE_GOLD_INGOT = registerItem("rose_gold_ingot",

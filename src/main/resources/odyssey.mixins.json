@@ -6,17 +6,21 @@
   "mixins": [
     "AxeModification",
     "BookItemMixin",
+    "CactusBlockBoneMealMixin",
     "CheapAnvilRenameMixin",
     "EggEntityMixin",
     "FarmlandBlockMixin",
     "ItemMixin",
+    "LilyPadBlockBoneMealMixin",
     "MainMixin",
     "MixinFluidBlock",
     "MixinLavaFluid",
+    "NetherWartBlockWitherBoneMealMixin",
     "PlayerEntityMixin",
     "PlayerManagerMixin",
     "ScreenshotRecorderMixin",
     "SnowballEntityMixin",
+    "SugarCaneBlockBoneMealMixin",
     "villagerInitMixin"
   ],
   "client": [

@@ -67,6 +67,10 @@ public class ModBlocks {
     new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY)
     .sounds(BlockSoundGroup.DEEPSLATE).requiresTool().hardness(4.5f).strength(3.0f), UniformIntProvider.create(3, 7)));
 
+    public static final Block WITHER_BONE_BLOCK = registerBlock("wither_bone_block",
+    new ModPillarBlock(FabricBlockSettings.of(Material.STONE, MapColor.BLACK)
+    .requiresTool().sounds(BlockSoundGroup.BONE).strength(2.0f)));
+
 // Registry for Blocks:
 
     private static Block registerBlock(String name, Block block){
