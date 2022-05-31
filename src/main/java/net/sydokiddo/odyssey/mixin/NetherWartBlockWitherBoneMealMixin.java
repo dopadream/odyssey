@@ -13,6 +13,8 @@ import net.minecraft.world.World;
 import net.sydokiddo.odyssey.item.ModItems;
 import org.spongepowered.asm.mixin.Mixin;
 
+// Mixin to allow Nether Warts to be fertilized using Withered Bone Meal
+
 @Mixin(NetherWartBlock.class)
 public abstract class NetherWartBlockWitherBoneMealMixin extends PlantBlock
 {

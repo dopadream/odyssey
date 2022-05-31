@@ -12,6 +12,8 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
+// Mixin to allow Lily Pads to be fertilized using Bone Meal
+
 @Mixin(LilyPadBlock.class)
 public abstract class LilyPadBlockBoneMealMixin implements Fertilizable {
     @Shadow protected abstract boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos);

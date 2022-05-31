@@ -8,6 +8,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 
+// Mixin to allow Sugar Cane to be fertilized using Bone Meal
+
 @Mixin(SugarCaneBlock.class)
 public abstract class SugarCaneBlockBoneMealMixin implements Fertilizable
 {

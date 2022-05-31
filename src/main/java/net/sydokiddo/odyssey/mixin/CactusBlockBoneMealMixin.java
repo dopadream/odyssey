@@ -11,6 +11,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 
+// Mixin to allow Cacti to be fertilized using Bone Meal
+
 @Mixin(CactusBlock.class)
 public abstract class CactusBlockBoneMealMixin implements Fertilizable
 {
