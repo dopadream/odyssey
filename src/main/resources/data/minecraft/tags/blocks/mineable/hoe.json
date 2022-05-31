@@ -4,6 +4,9 @@
     "odyssey:bamboo_block",
     "odyssey:paper_block",
     "odyssey:rotten_flesh_block",
-    "odyssey:sugar_cane_block"
+    "odyssey:sugar_cane_block",
+    "minecraft:pearlescent_froglight",
+    "minecraft:verdant_froglight",
+    "minecraft:ochre_froglight"
   ]
 }
