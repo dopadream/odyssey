@@ -14,6 +14,7 @@
     "LilyPadBlockBoneMealMixin",
     "LivingEntityMixin",
     "MainMixin",
+    "MixinAnvilBlock",
     "MixinFluidBlock",
     "MixinLavaFluid",
     "MixinPigEntity",
