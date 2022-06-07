@@ -12,6 +12,7 @@ import net.minecraft.util.registry.Registry;
 import net.sydokiddo.odyssey.Odyssey;
 import net.sydokiddo.odyssey.block.custom_blocks.MagmaCreamBlock;
 import net.sydokiddo.odyssey.block.custom_blocks.ModPillarBlock;
+import net.sydokiddo.odyssey.block.custom_blocks.PhantomMembraneBlock;
 import net.sydokiddo.odyssey.item.ModItemGroup;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 
@@ -41,6 +42,10 @@ public class ModBlocks {
 
     public static final Block ROTTEN_FLESH_BLOCK = registerBlock("rotten_flesh_block",
     new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_ORANGE)
+    .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
+
+    public static final Block PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
+    new PhantomMembraneBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_LIGHT_GRAY)
     .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
 
     public static final Block MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",

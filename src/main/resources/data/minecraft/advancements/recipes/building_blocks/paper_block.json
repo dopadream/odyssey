@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:pellet"
+      "minecraft:ruby_block"
     ]
   },
   "criteria": {
-    "has_flintlock": {
+    "has_paper": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "odyssey:flintlock"
+              "odyssey:ruby"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:pellet"
+        "recipe": "minecraft:ruby_block"
       }
     }
   },
   "requirements": [
     [
-      "has_flintlock",
+      "has_ruby",
       "has_the_recipe"
     ]
   ]

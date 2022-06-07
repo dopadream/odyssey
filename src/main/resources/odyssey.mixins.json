@@ -12,6 +12,7 @@
     "FarmlandBlockMixin",
     "ItemMixin",
     "LilyPadBlockBoneMealMixin",
+    "LivingEntityMixin",
     "MainMixin",
     "MixinFluidBlock",
     "MixinLavaFluid",

@@ -1,7 +1,6 @@
-package net.sydokiddo.world.feature;
+package net.sydokiddo.odyssey.world.feature;
 
 import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.world.gen.HeightContext;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;

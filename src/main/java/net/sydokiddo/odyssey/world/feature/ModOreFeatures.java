@@ -1,4 +1,4 @@
-package net.sydokiddo.world.feature;
+package net.sydokiddo.odyssey.world.feature;
 
 import net.minecraft.world.gen.placementmodifier.*;
 

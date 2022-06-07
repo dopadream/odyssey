@@ -13,6 +13,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+// Allows for Villagers to follow the player if the player is holding an Emerald Block
+
 @Mixin(VillagerEntity.class)
 public abstract class villagerInitMixin extends MerchantEntity {
 
@@ -23,7 +25,7 @@ public abstract class villagerInitMixin extends MerchantEntity {
     @Inject(method = "<init>(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;Lnet/minecraft/village/VillagerType;)V",
             at = @At(value = "TAIL"))
     private void inject(EntityType<? extends VillagerEntity> entityType, World world, VillagerType type, CallbackInfo ci) {
-        this.goalSelector.add(2, new TemptGoal(this, .4D, Ingredient.ofItems(Items.EMERALD_BLOCK), false));
+        this.goalSelector.add(2, new TemptGoal(this, .4D, Ingredient.ofItems(Items.EMERALD_BLOCK), true));
     }
 
 }

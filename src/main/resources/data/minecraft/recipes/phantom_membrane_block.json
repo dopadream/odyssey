@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "result": {
+    "item": "odyssey:phantom_membrane_block",
+    "count": 1
+  }
+}
