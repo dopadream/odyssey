@@ -17,6 +17,9 @@ public class ModItems {
     public static final Item RUBY = registerItem("ruby",
             new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
 
+    public static final Item COPPER_NUGGET = registerItem("copper_nugget",
+            new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+
     public static final Item IRON_POTATO = registerItem("iron_potato", new Item(new FabricItemSettings()
             .food(new FoodComponent.Builder().hunger(6).saturationModifier(10).alwaysEdible().statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 300, 1), 1f)
                     .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 300, 0), 1f).build())
