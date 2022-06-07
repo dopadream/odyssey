@@ -28,7 +28,7 @@ public class MixinAnvilBlock {
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> ci) {
         if (!world.isClient) {
             ItemStack held = player.getStackInHand(hand);
-            if (held.getItem() == Item.fromBlock(Blocks.IRON_BLOCK) && player.isSneaking()) {
+            if (held.getItem() == Item.fromBlock(Blocks.IRON_BLOCK)) {
                 BlockState bs = world.getBlockState(pos);
                 boolean consume = false;
                 if (bs.getBlock() == Blocks.DAMAGED_ANVIL) {

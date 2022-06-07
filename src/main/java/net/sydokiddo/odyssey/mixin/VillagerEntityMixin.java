@@ -16,9 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 // Allows for Villagers to follow the player if the player is holding an Emerald Block
 
 @Mixin(VillagerEntity.class)
-public abstract class villagerInitMixin extends MerchantEntity {
+public abstract class VillagerEntityMixin extends MerchantEntity {
 
-    public villagerInitMixin(EntityType<? extends MerchantEntity> entityType, World world) {
+    public VillagerEntityMixin(EntityType<? extends MerchantEntity> entityType, World world) {
         super(entityType, world);
     }
 

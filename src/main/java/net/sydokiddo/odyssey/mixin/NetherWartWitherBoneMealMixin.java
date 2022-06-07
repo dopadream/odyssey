@@ -16,9 +16,9 @@ import org.spongepowered.asm.mixin.Mixin;
 // Mixin to allow Nether Warts to be fertilized using Withered Bone Meal
 
 @Mixin(NetherWartBlock.class)
-public abstract class NetherWartBlockWitherBoneMealMixin extends PlantBlock
+public abstract class NetherWartWitherBoneMealMixin extends PlantBlock
 {
-    protected NetherWartBlockWitherBoneMealMixin(Settings settings)
+    protected NetherWartWitherBoneMealMixin(Settings settings)
     {
         super(settings);
     }
