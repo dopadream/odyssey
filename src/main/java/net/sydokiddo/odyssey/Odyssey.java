@@ -4,6 +4,7 @@ import com.google.common.reflect.Reflection;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.sydokiddo.odyssey.block.ModBlocks;
@@ -53,6 +54,7 @@ public class Odyssey implements ModInitializer {
 
 		// Flammable Block Registry:
 
+		FlammableBlockRegistry.getDefaultInstance().add(Blocks.COBWEB, 60, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAMBOO_BLOCK, 60, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.SUGAR_CANE_BLOCK, 60, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PAPER_BLOCK, 60, 20);
