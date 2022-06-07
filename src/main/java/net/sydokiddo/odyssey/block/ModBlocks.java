@@ -48,6 +48,10 @@ public class ModBlocks {
     new PhantomMembraneBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_LIGHT_GRAY)
     .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
 
+    public static final Block SPIDER_EYE_BLOCK = registerBlock("spider_eye_block",
+    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.DARK_RED)
+    .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
+
     public static final Block MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
     new MagmaCreamBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.RED)
     .sounds(BlockSoundGroup.SLIME).luminance(8).hardness(0.0f).strength(0.0f).nonOpaque()));

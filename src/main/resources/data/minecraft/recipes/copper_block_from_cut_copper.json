@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:phantom_membrane"
+      "item": "minecraft:cut_copper"
     }
   },
   "result": {
-    "item": "odyssey:phantom_membrane_block",
+    "item": "minecraft:copper_block",
     "count": 1
   }
 }

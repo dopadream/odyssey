@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:paper_block"
+      "minecraft:phantom_membrane_block"
     ]
   },
   "criteria": {
-    "has_paper": {
+    "has_phantom_membrane": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:paper"
+              "minecraft:phantom_membrane"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:paper_block"
+        "recipe": "minecraft:phantom_membrane_block"
       }
     }
   },
   "requirements": [
     [
-      "has_paper",
+      "has_phantom_membrane",
       "has_the_recipe"
     ]
   ]

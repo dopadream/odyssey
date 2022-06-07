@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:paper_block"
+      "minecraft:gunpowder_block"
     ]
   },
   "criteria": {
-    "has_paper": {
+    "has_gunpowder": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:paper"
+              "minecraft:gunpowder"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:paper_block"
+        "recipe": "minecraft:gunpowder_block"
       }
     }
   },
   "requirements": [
     [
-      "has_paper",
+      "has_gunpowder",
       "has_the_recipe"
     ]
   ]

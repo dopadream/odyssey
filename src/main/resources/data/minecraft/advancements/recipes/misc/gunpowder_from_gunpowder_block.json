@@ -2,29 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:rose_gold_ingot"
+      "minecraft:gunpowder_from_gunpowder_block"
     ]
   },
   "criteria": {
-    "has_copper_ingot": {
+    "has_gunpowder_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:copper_ingot"
-            ]
-          }
-        ]
-      }
-    },
-    "has_gold_ingot": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:gold_ingot"
+              "odyssey:gunpowder_block"
             ]
           }
         ]
@@ -33,14 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:rose_gold_ingot"
+        "recipe": "minecraft:gunpowder_from_gunpowder_block"
       }
     }
   },
   "requirements": [
     [
-      "has_copper_ingot",
-      "has_gold_ingot",
+      "has_gunpowder_block",
       "has_the_recipe"
     ]
   ]

@@ -2,6 +2,7 @@ package net.sydokiddo.odyssey;
 
 import com.google.common.reflect.Reflection;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -49,6 +50,12 @@ public class Odyssey implements ModInitializer {
 		// Furnace Fuel Registry:
 
 		FuelRegistry.INSTANCE.add(ModBlocks.BAMBOO_BLOCK, 400);
+
+		// Flammable Block Registry:
+
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAMBOO_BLOCK, 60, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.SUGAR_CANE_BLOCK, 60, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PAPER_BLOCK, 60, 20);
 	}
 
 	public static void put(Item item, EntityType<?> type){

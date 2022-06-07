@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:paper_block"
+      "minecraft:rotten_flesh_from_rotten_flesh_block"
     ]
   },
   "criteria": {
-    "has_paper": {
+    "has_rotten_flesh_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:paper"
+              "odyssey:rotten_flesh_block"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:paper_block"
+        "recipe": "minecraft:rotten_flesh_from_rotten_flesh_block"
       }
     }
   },
   "requirements": [
     [
-      "has_paper",
+      "has_rotten_flesh_block",
       "has_the_recipe"
     ]
   ]
