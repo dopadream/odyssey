@@ -25,7 +25,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:wither_skeleton_skull",
+          "name": "odyssey:wither_skull_fragment",
           "weight": 8
         },
         {
