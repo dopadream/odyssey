@@ -6,9 +6,8 @@
     }
   },
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "##",
+    "##"
   ],
   "result": {
     "item": "minecraft:wither_skeleton_skull"
