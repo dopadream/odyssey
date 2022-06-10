@@ -6,6 +6,7 @@
   "mixins": [
     "AxeModification",
     "BookItemMixin",
+    "BrewingStandScreenHandlerMixin",
     "CactusBlockBoneMealMixin",
     "CheapAnvilRenameMixin",
     "EggEntityMixin",
@@ -25,9 +26,11 @@
     "NetherWartWitherBoneMealMixin",
     "PlayerEntityMixin",
     "PlayerManagerMixin",
+    "PotionItemMixin",
     "ScreenshotRecorderMixin",
     "SnowballEntityMixin",
     "SugarCaneBlockBoneMealMixin",
+    "ThrowablePotionItemMixin",
     "TridentModification",
     "VillagerEntityMixin"
   ],
