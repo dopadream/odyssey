@@ -24,6 +24,7 @@
     "MixinPigEntity",
     "MixinStriderEntity",
     "MixinTridentEntity",
+    "NamedEntityNametagMixin",
     "NetherWartWitherBoneMealMixin",
     "PlayerEntityMixin",
     "PlayerManagerMixin",
