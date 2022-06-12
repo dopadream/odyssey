@@ -95,5 +95,4 @@ public class ModBlocks {
     public static void registerModBlocks() {
         System.out.println("Registering Blocks for " + Odyssey.MOD_ID);
     }
-
 }
