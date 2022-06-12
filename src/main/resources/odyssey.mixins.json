@@ -19,6 +19,7 @@
     "MixinAbstractCauldronBlock",
     "MixinAnvilBlock",
     "MixinFluidBlock",
+    "MixinInGameOverlayRenderer",
     "MixinLavaFluid",
     "MixinMinecraftClient",
     "MixinPigEntity",
