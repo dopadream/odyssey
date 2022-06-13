@@ -1,13 +1,9 @@
 package net.sydokiddo.odyssey.mixin.quality_of_life;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.sound.SoundManager;
 import net.minecraft.client.texture.NativeImage;
 import net.minecraft.client.util.ScreenshotRecorder;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.ClipboardImage;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,8 +29,8 @@ public abstract class ScreenshotRecorderMixin {
         try {
             File path = new File(mc.runDirectory.getAbsolutePath() + "\\screenshots\\");
             Optional<Path> lastFilePath = Files.list(path.toPath())
-                    .filter(f -> !Files.isDirectory(f))
-                    .max(Comparator.comparingLong(f -> f.toFile().lastModified()));
+            .filter(f -> !Files.isDirectory(f))
+            .max(Comparator.comparingLong(f -> f.toFile().lastModified()));
             Image lastScreen = new ImageIcon(lastFilePath.get().toString()).getImage();
             ClipboardImage newImage = new ClipboardImage(lastScreen);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
