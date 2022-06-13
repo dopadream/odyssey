@@ -3,6 +3,7 @@ package net.sydokiddo.odyssey.item.custom_items;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
@@ -17,11 +18,11 @@ import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.MobBookHelper;
 
 public class AllayBookItem extends Item {
-    public final EntityType<?> animalType;
+    public final EntityType<AllayEntity> animalType;
     public final String storedMobString;
     public World world;
 
-    public AllayBookItem(EntityType<?> type, Settings settings, String storedMobString) {
+    public AllayBookItem(EntityType<AllayEntity> type, Settings settings, String storedMobString) {
         super(settings);
         this.animalType = type;
         this.storedMobString = storedMobString;
@@ -49,12 +50,14 @@ public class AllayBookItem extends Item {
 
             // Spawns Allay
 
-            Entity mob = MobBookHelper.spawn(animalType, (ServerWorld)world, spawnPos, SpawnReason.BUCKET);
+            AllayEntity mob = MobBookHelper.spawn(animalType, (ServerWorld)world, spawnPos, SpawnReason.MOB_SUMMONED);
             if (mob != null) {
 
                 NbtCompound data = MobBookHelper.getCompound(held, storedMobString);
 
                 mob.readCustomDataFromNbt(data);
+                //(vibrationListener) -> {
+                // mob.gameEventHandler.setListener(vibrationListener, this.world);
 
                 if (context.getStack().hasCustomName()) {
                     mob.setCustomName(context.getStack().getName());
