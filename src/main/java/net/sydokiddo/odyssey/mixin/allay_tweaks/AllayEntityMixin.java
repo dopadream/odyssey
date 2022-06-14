@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-// Allows for Allays to follow players who are holding Amethyst Shards or Echo Shards
+// Allows for Allays to follow players who are holding Amethyst Shards
 
 @Mixin(AllayEntity.class)
 public abstract class AllayEntityMixin extends PathAwareEntity implements InventoryOwner, VibrationListener.Callback {
@@ -26,6 +26,6 @@ public abstract class AllayEntityMixin extends PathAwareEntity implements Invent
     @Inject(method = "<init>(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;)V",
             at = @At(value = "TAIL"))
     private void inject(EntityType entityType, World world, CallbackInfo ci) {
-        this.goalSelector.add(4, new TemptGoal(this, 2.0D, Ingredient.ofItems(Items.AMETHYST_SHARD, Items.ECHO_SHARD), true));
+        this.goalSelector.add(4, new TemptGoal(this, 2.0D, Ingredient.ofItems(Items.AMETHYST_SHARD), true));
     }
 }

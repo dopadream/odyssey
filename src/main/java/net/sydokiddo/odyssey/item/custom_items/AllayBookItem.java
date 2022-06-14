@@ -14,6 +14,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.MobBookHelper;
 
@@ -41,6 +42,7 @@ public class AllayBookItem extends Item {
         ItemStack held = player.getStackInHand(hand);
 
         world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOOK_RELEASE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+        player.emitGameEvent(GameEvent.BLOCK_PLACE);
 
         if (!world.isClient) {
             double x = pos.getX() + 0.5F + facing.getOffsetX();

@@ -8,6 +8,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.event.GameEvent;
 import net.sydokiddo.odyssey.item.ModItems;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,6 +37,7 @@ public abstract class ArmorStandInteractionMixin {
             this.setShowArms(!this.shouldShowArms());
             player.world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_COPPER_WRENCH_USE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             player.swingHand(hand);
+            player.emitGameEvent(GameEvent.ENTITY_INTERACT);
             info.setReturnValue(ActionResult.FAIL);
         }
     }

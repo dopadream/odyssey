@@ -1,5 +1,6 @@
 package net.sydokiddo.odyssey.mixin.block_tweaks;
 
+import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -40,6 +41,7 @@ public class MixinAnvilBlock {
                 }
                 if (consume) {
                     world.playSound(null, pos, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.BLOCKS, 1, 1);
+                    player.emitGameEvent(GameEvent.BLOCK_PLACE);
                     if (!player.getAbilities().creativeMode) {
                         held.decrement(1);
                     }

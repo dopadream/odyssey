@@ -79,6 +79,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             }
 
             player.swingHand(hand);
+            player.emitGameEvent(GameEvent.ENTITY_INTERACT);
             entity.discard();
             entity.emitGameEvent(GameEvent.BLOCK_PLACE, entity);
         }
