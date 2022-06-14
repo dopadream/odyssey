@@ -1,5 +1,7 @@
 {
   "itemGroup.odyssey.odyssey": "Odyssey",
+  "key.crawl": "Crawl",
+  "key.crawl.toggle": "Crawl (Toggle)",
   "item.odyssey.ruby": "Ruby",
   "item.odyssey.rose_gold_ingot": "Rose Gold Ingot",
   "item.odyssey.soul_steel_ingot": "Soul Steel Ingot",
@@ -25,6 +27,7 @@
   "item.odyssey.wither_skull_fragment": "Wither Skull Fragment",
   "item.odyssey.wither_bone_meal": "Wither Bone Meal",
   "item.odyssey.copper_nugget": "Copper Nugget",
+  "item.odyssey.ruined_trident": "Ruined Trident",
   "block.odyssey.ruby_block": "Block of Ruby",
   "block.odyssey.ruby_ore": "Ruby Ore",
   "block.odyssey.deepslate_ruby_ore": "Deepslate Ruby Ore",

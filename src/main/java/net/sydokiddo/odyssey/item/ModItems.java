@@ -47,6 +47,9 @@ public class ModItems {
     public static final Item WITHER_SKULL_FRAGMENT = registerItem("wither_skull_fragment",
     new Item(new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
 
+    public static final Item RUINED_TRIDENT = registerItem("ruined_trident",
+    new Item(new FabricItemSettings().maxCount(1).group(ModItemGroup.ODYSSEY)));
+
 // Registry for Items:
 
     private static Item registerItem(String name, Item item) {
