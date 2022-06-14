@@ -50,6 +50,9 @@ public class ModItems {
     public static final Item RUINED_TRIDENT = registerItem("ruined_trident",
     new Item(new FabricItemSettings().maxCount(1).group(ModItemGroup.ODYSSEY)));
 
+    public static final Item COPPER_WRENCH = registerItem("copper_wrench",
+            new Item(new FabricItemSettings().maxCount(1).group(ModItemGroup.ODYSSEY)));
+
 // Registry for Items:
 
     private static Item registerItem(String name, Item item) {

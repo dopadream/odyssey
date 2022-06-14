@@ -1,6 +1,5 @@
 {
   "item.allay_bound_book.capture": {
-    "category": "neutral",
     "sounds": [
       "odyssey:item/allay_bound_book/allay_capture1",
       "odyssey:item/allay_bound_book/allay_capture2"
@@ -8,22 +7,28 @@
     "subtitle": "subtitles.item.allay_bound_book.capture"
   },
   "item.allay_bound_book.release": {
-    "category": "neutral",
     "sounds": [
       "odyssey:item/allay_bound_book/allay_release1",
       "odyssey:item/allay_bound_book/allay_release2"
     ],
     "subtitle": "subtitles.item.allay_bound_book.release"
   },
+  "item.copper_wrench.use": {
+    "sounds": [
+      "odyssey:item/copper_wrench/use1",
+      "odyssey:item/copper_wrench/use2",
+      "odyssey:item/copper_wrench/use3",
+      "odyssey:item/copper_wrench/use4"
+    ],
+    "subtitle": "subtitles.item.copper_wrench.use"
+  },
   "item.flintlock.loading_start": {
-    "category": "neutral",
     "sounds": [
       "odyssey:item/flintlock/loading_start"
     ],
     "subtitle": "subtitles.item.flintlock.loading"
   },
   "item.flintlock.loading_middle": {
-    "category": "neutral",
     "sounds": [
       "odyssey:item/flintlock/loading_middle1",
       "odyssey:item/flintlock/loading_middle2",
@@ -33,14 +38,12 @@
     "subtitle": "subtitles.item.flintlock.loading"
   },
   "item.flintlock.loading_end": {
-    "category": "neutral",
     "sounds": [
       "odyssey:item/flintlock/loading_end"
     ],
     "subtitle": "subtitles.item.flintlock.loading_end"
   },
   "item.flintlock.shoot": {
-    "category": "neutral",
     "sounds": [
       "odyssey:item/flintlock/shoot1",
       "odyssey:item/flintlock/shoot2",
@@ -49,7 +52,6 @@
     "subtitle": "subtitles.item.flintlock.shoot"
   },
   "block.firefly_lantern.place": {
-    "category": "block",
     "sounds": [
       "odyssey:block/firefly_lantern/place1",
       "odyssey:block/firefly_lantern/place2",
@@ -61,7 +63,6 @@
     "subtitle": "subtitles.block.generic.place"
   },
   "block.firefly_lantern.break": {
-    "category": "block",
     "sounds": [
       "odyssey:block/firefly_lantern/break1",
       "odyssey:block/firefly_lantern/break2",
@@ -73,7 +74,6 @@
     "subtitle": "subtitles.block.generic.break"
   },
   "block.firefly_lantern.hit": {
-    "category": "block",
     "sounds": [
       "odyssey:block/firefly_lantern/place1",
       "odyssey:block/firefly_lantern/place2",
@@ -85,7 +85,6 @@
     "subtitle": "subtitles.block.generic.hit"
   },
   "block.firefly_lantern.step": {
-    "category": "block",
     "sounds": [
       "odyssey:block/firefly_lantern/place1",
       "odyssey:block/firefly_lantern/place2",
@@ -97,7 +96,6 @@
     "subtitle": "subtitles.block.generic.footsteps"
   },
   "block.firefly_lantern.fall": {
-    "category": "block",
     "sounds": [
       "odyssey:block/firefly_lantern/place1",
       "odyssey:block/firefly_lantern/place2",
@@ -108,7 +106,6 @@
     ]
   },
   "block.paper_block.place": {
-    "category": "block",
     "sounds": [
       "odyssey:block/paper_block/break1",
       "odyssey:block/paper_block/break2",
@@ -119,7 +116,6 @@
     "subtitle": "subtitles.block.generic.place"
   },
   "block.paper_block.break": {
-    "category": "block",
     "sounds": [
       "odyssey:block/paper_block/break1",
       "odyssey:block/paper_block/break2",
@@ -130,7 +126,6 @@
     "subtitle": "subtitles.block.generic.break"
   },
   "block.paper_block.hit": {
-    "category": "block",
     "sounds": [
       "odyssey:block/paper_block/break1",
       "odyssey:block/paper_block/break2",
@@ -141,7 +136,6 @@
     "subtitle": "subtitles.block.generic.hit"
   },
   "block.paper_block.step": {
-    "category": "block",
     "sounds": [
       "odyssey:block/paper_block/step1",
       "odyssey:block/paper_block/step2",
@@ -153,7 +147,6 @@
     "subtitle": "subtitles.block.generic.footsteps"
   },
   "block.paper_block.fall": {
-    "category": "block",
     "sounds": [
       "odyssey:block/paper_block/step1",
       "odyssey:block/paper_block/step2",

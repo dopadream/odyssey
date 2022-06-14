@@ -29,6 +29,7 @@
     "other_entity_tweaks.MixinTridentEntity",
     "other_entity_tweaks.NamedEntityNametagMixin",
     "other_entity_tweaks.VillagerEntityMixin",
+    "quality_of_life.ArmorStandInteractionMixin",
     "quality_of_life.CheapAnvilRenameMixin",
     "quality_of_life.MixinInGameOverlayRenderer",
     "quality_of_life.MixinMinecraftClient",

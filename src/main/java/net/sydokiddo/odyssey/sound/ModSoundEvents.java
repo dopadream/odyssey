@@ -15,6 +15,8 @@ public class ModSoundEvents {
     public static final SoundEvent ITEM_ALLAY_BOOK_CAPTURE = registerSoundEvent("item.allay_bound_book.capture");
     public static final SoundEvent ITEM_ALLAY_BOOK_RELEASE = registerSoundEvent("item.allay_bound_book.release");
 
+    public static final SoundEvent ITEM_COPPER_WRENCH_USE = registerSoundEvent("item.copper_wrench.use");
+
     public static final SoundEvent ITEM_FLINTLOCK_LOADING_START = registerSoundEvent("item.flintlock.loading_start");
     public static final SoundEvent ITEM_FLINTLOCK_LOADING_MIDDLE = registerSoundEvent("item.flintlock.loading_middle");
     public static final SoundEvent ITEM_FLINTLOCK_LOADING_END = registerSoundEvent("item.flintlock.loading_end");
