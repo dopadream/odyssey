@@ -22,6 +22,16 @@
     ],
     "subtitle": "subtitles.item.copper_wrench.use"
   },
+  "item.wither_bone_meal.use": {
+    "sounds": [
+      "odyssey:item/wither_bonemeal/bonemeal1",
+      "odyssey:item/wither_bonemeal/bonemeal2",
+      "odyssey:item/wither_bonemeal/bonemeal3",
+      "odyssey:item/wither_bonemeal/bonemeal4",
+      "odyssey:item/wither_bonemeal/bonemeal5"
+    ],
+    "subtitle": "subtitles.item.wither_bone_meal.use"
+  },
   "item.flintlock.loading_start": {
     "sounds": [
       "odyssey:item/flintlock/loading_start"
