@@ -6,10 +6,13 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.damage.EntityDamageSource;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
@@ -37,6 +40,8 @@ public class Odyssey implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final String MOD_ID = "odyssey";
+
+	public static boolean isOdysseyLoaded = false;
 
 	// Blocks that can be converted to another block:
 
@@ -76,6 +81,7 @@ public class Odyssey implements ModInitializer {
 
 		// Registry:
 
+		isOdysseyLoaded = FabricLoader.getInstance().isModLoaded("odyssey");
 		Reflection.initialize(MobBookItems.class);
 		MobBookItems.init();
 		put(MobBookItems.ALLAY_BOOK_ITEM, EntityType.ALLAY);
@@ -110,7 +116,7 @@ public class Odyssey implements ModInitializer {
 				if (block.isIn(OdysseyTags.WITHER_BONE_MEAL_CONVERTIBLE)) {
 
 					var decay = BLOCK_CONVERTING.get(block.getBlock());
-					if(decay != null) {
+					if (decay != null) {
 
 						// Changes any small flower to a Wither Rose
 
@@ -119,7 +125,7 @@ public class Odyssey implements ModInitializer {
 						// Particles and Sound Event
 
 						world.playSound(null, pos, ModSoundEvents.ITEM_WITHER_BONE_MEAL_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-						world.addParticle(ParticleTypes.SMOKE, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
+						world.addParticle(ParticleTypes.SMOKE, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
 
 						// Stats and Advancements
 
@@ -127,12 +133,12 @@ public class Odyssey implements ModInitializer {
 						Item item = heldItem.getItem();
 						player.incrementStat(Stats.USED.getOrCreateStat(item));
 						if (player instanceof ServerPlayerEntity) {
-							Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, pos, heldItem);
+							Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity) player, pos, heldItem);
 						}
 
 						// Remove 1 Wither Bone Meal if the player is not in Creative Mode
 
-						if(!player.isCreative()) {
+						if (!player.isCreative()) {
 							heldItem.decrement(1);
 						}
 
@@ -149,7 +155,17 @@ public class Odyssey implements ModInitializer {
 		});
 	}
 
-	public static void put(Item item, EntityType<?> type){
+	// Backstabbing Damage Source for Amethyst Dagger:
+
+	public static class BackstabDamageSource extends EntityDamageSource {
+
+		public BackstabDamageSource(Entity source) {
+			super("backstab", source);
+			setBypassesArmor();
+		}
+	}
+
+	public static void put(Item item, EntityType<?> type) {
 		booksMap.put(type, item);
 	}
 }

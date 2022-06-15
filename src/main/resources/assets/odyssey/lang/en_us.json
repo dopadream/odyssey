@@ -29,6 +29,7 @@
   "item.odyssey.copper_nugget": "Copper Nugget",
   "item.odyssey.ruined_trident": "Ruined Trident",
   "item.odyssey.copper_wrench": "Copper Wrench",
+  "item.odyssey.amethyst_dagger": "Amethyst Dagger",
   "block.odyssey.ruby_block": "Block of Ruby",
   "block.odyssey.ruby_ore": "Ruby Ore",
   "block.odyssey.deepslate_ruby_ore": "Deepslate Ruby Ore",
@@ -62,6 +63,7 @@
   "subtitles.item.allay_bound_book.release": "Allay released",
   "subtitles.item.copper_wrench.use": "Copper Wrench clanks",
   "subtitles.item.wither_bone_meal.use": "Wither Bone Meal crinkles",
+  "subtitles.item.amethyst_dagger.backstab": "Amethyst Dagger backstabs",
   "entity.odyssey.firefly": "Firefly",
   "item.odyssey.firefly_spawn_egg": "Firefly Spawn Egg",
   "entity.odyssey.sporechap": "Sporechap",
@@ -87,5 +89,7 @@
   "advancements.adventure.find_ancient_city.title": "Long Long Forgotten",
   "advancements.adventure.find_ancient_city.description": "Discover an ancient city",
   "advancements.husbandry.capture_allay.title": "Pocket Buddy",
-  "advancements.husbandry.capture_allay.description": "Capture an Allay using a book"
+  "advancements.husbandry.capture_allay.description": "Capture an Allay using a book",
+  "death.attack.backstab": "%1$s was backstabbed by %2$s",
+  "death.attack.backstab.item": "%1$s was backstabbed by %2$s using %3$s"
 }

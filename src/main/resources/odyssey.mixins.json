@@ -35,6 +35,7 @@
     "quality_of_life.MixinMinecraftClient",
     "quality_of_life.ScreenshotMainMixin",
     "quality_of_life.ScreenshotRecorderMixin",
+    "weapon_enchantments.AmethystDaggerModification",
     "weapon_enchantments.AxeModification",
     "weapon_enchantments.TridentModification"
   ],

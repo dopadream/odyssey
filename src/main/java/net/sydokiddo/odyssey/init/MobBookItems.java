@@ -4,6 +4,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.event.listener.EntityGameEventHandler;
+import net.minecraft.world.event.listener.VibrationListener;
 import net.sydokiddo.odyssey.Odyssey;
 import net.sydokiddo.odyssey.item.ModItemGroup;
 import net.sydokiddo.odyssey.item.custom_items.AllayBookItem;
@@ -14,7 +16,8 @@ public class MobBookItems {
     public static void init(){}
 
     private static Item registerMobBook() {
-        var item = new AllayBookItem(EntityType.ALLAY, Settings.MOB_BOOK, "");
+        EntityGameEventHandler<VibrationListener> gameEventHandler = null;
+        var item = new AllayBookItem(EntityType.ALLAY, Settings.MOB_BOOK, "", null);
         return Registry.register(Registry.ITEM, new Identifier(Odyssey.MOD_ID, "allay_bound_book"), item);
     }
 

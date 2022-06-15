@@ -15,6 +15,8 @@ public class ModSoundEvents {
     public static final SoundEvent ITEM_ALLAY_BOOK_CAPTURE = registerSoundEvent("item.allay_bound_book.capture");
     public static final SoundEvent ITEM_ALLAY_BOOK_RELEASE = registerSoundEvent("item.allay_bound_book.release");
 
+    public static final SoundEvent ITEM_AMETHYST_DAGGER_BACKSTAB = registerSoundEvent("item.amethyst_dagger.backstab");
+
     public static final SoundEvent ITEM_COPPER_WRENCH_USE = registerSoundEvent("item.copper_wrench.use");
 
     public static final SoundEvent ITEM_WITHER_BONE_MEAL_USE = registerSoundEvent("item.wither_bone_meal.use");

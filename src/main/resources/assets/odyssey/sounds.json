@@ -32,6 +32,14 @@
     ],
     "subtitle": "subtitles.item.wither_bone_meal.use"
   },
+  "item.amethyst_dagger.backstab": {
+    "sounds": [
+      "odyssey:item/amethyst_dagger/backstab1",
+      "odyssey:item/amethyst_dagger/backstab2",
+      "odyssey:item/amethyst_dagger/backstab3"
+    ],
+    "subtitle": "subtitles.item.amethyst_dagger.backstab"
+  },
   "item.flintlock.loading_start": {
     "sounds": [
       "odyssey:item/flintlock/loading_start"
