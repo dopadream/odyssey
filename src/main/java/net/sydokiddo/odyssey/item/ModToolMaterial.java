@@ -8,7 +8,7 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum ModToolMaterial implements ToolMaterial {
-    AMETHYST(2, 280, 6.0F, 4.0F, 19, () -> {
+    AMETHYST(2, 280, 6.0F, 3.5F, 19, () -> {
         return Ingredient.ofItems(Items.AMETHYST_SHARD);
     });
 

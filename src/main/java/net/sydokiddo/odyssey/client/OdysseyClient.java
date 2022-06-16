@@ -7,6 +7,7 @@ import net.sydokiddo.odyssey.block.ModBlocks;
 
 @net.fabricmc.api.Environment(net.fabricmc.api.EnvType.CLIENT)
 public class OdysseyClient implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
 

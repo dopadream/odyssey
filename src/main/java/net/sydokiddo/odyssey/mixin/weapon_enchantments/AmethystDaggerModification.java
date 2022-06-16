@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 public abstract class AmethystDaggerModification {
 
-    // Mixin to allow Looting, any Damage Enchantment, and Fire Aspect to work on Amethyst Daggers
+    // Mixin to allow Looting and any damage related enchantment to work on Amethyst Daggers
 
     @Shadow
     @Final

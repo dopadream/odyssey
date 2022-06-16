@@ -35,39 +35,41 @@ public class AmethystDaggerItem extends ToolItem implements Vanishable {
 
     }
 
+    // Prevents the player from breaking blocks with the Amethyst Dagger while in Creative Mode
+
     public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner) {
         return !miner.isCreative();
     }
 
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
-        // Cancels knockback to balance it out
+    // Cancels knockback for balancing purposes
 
         Vec3d vec3d = attacker.getRotationVector();
         target.velocityModified = true;
         target.addVelocity(-vec3d.x * 0.5, -0.25, -vec3d.z * 0.5);
 
-        // Backstabbing Bonus Damage
+    // Backstabbing Bonus Damage
 
         boolean isBehind = attacker.getRotationVector().dotProduct(target.getRotationVector()) > 0.8;
 
         if (isBehind) {
             target.timeUntilRegen = 0;
             target.damage(new Odyssey.BackstabDamageSource(attacker), (float) attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
-            target.playSound(ModSoundEvents.ITEM_AMETHYST_DAGGER_BACKSTAB, 1.0F, 0.5F);
+            target.playSound(ModSoundEvents.ITEM_AMETHYST_DAGGER_BACKSTAB, 1.0F, 0.8F);
         }
 
-        // Amethyst Dagger only has half the invulnerability time of a Sword
+    // Amethyst Dagger only has half the invulnerability time of a Sword
 
         target.timeUntilRegen = 10;
 
-        // Damages the Amethyst Dagger upon use
+    // Damages the Amethyst Dagger upon use
 
         stack.damage(1, attacker, (player) -> player.sendToolBreakStatus(Hand.MAIN_HAND));
         return true;
     }
 
-        // Damages the Amethyst Sickle by a value of 2 if attempted to mine with it
+    // Damages the Amethyst Dagger by a value of 2 if attempted to mine with it
 
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         if (state.getHardness(world, pos) != 0.0F) {
@@ -77,7 +79,7 @@ public class AmethystDaggerItem extends ToolItem implements Vanishable {
         return true;
     }
 
-        // Lets players mine Cobwebs quickly with the Amethyst Dagger
+    // Lets players mine Cobwebs quickly with the Amethyst Dagger
 
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
         if (state.isOf(Blocks.COBWEB)) {
