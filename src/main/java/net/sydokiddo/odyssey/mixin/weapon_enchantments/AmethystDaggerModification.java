@@ -2,7 +2,6 @@ package net.sydokiddo.odyssey.mixin.weapon_enchantments;
 
 import net.minecraft.enchantment.*;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.TridentItem;
 import net.sydokiddo.odyssey.item.custom_items.AmethystDaggerItem;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,10 +27,6 @@ public abstract class AmethystDaggerModification {
             cir.setReturnValue(true);
         }
         if (enchantment instanceof DamageEnchantment) {
-            if (type != EnchantmentTarget.WEAPON || !(stack.getItem() instanceof AmethystDaggerItem)) return;
-            cir.setReturnValue(true);
-        }
-        if (enchantment instanceof FireAspectEnchantment) {
             if (type != EnchantmentTarget.WEAPON || !(stack.getItem() instanceof AmethystDaggerItem)) return;
             cir.setReturnValue(true);
         }

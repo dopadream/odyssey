@@ -6,7 +6,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -40,8 +39,6 @@ public class Odyssey implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final String MOD_ID = "odyssey";
-
-	public static boolean isOdysseyLoaded = false;
 
 	// Blocks that can be converted to another block:
 
@@ -81,7 +78,6 @@ public class Odyssey implements ModInitializer {
 
 		// Registry:
 
-		isOdysseyLoaded = FabricLoader.getInstance().isModLoaded("odyssey");
 		Reflection.initialize(MobBookItems.class);
 		MobBookItems.init();
 		put(MobBookItems.ALLAY_BOOK_ITEM, EntityType.ALLAY);

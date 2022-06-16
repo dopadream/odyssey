@@ -32,11 +32,10 @@
   "accessWidener" : "odyssey.accesswidener",
 
   "depends": {
-    "fabricloader": ">=0.14.3",
+    "fabricloader": ">=0.12.3",
     "fabric": "*",
     "minecraft": "1.19.x",
-    "java": ">=17",
-    "reach-entity-attributes": ">=2.1.1"
+    "java": ">=17"
   },
   "suggests": {
     "another-mod": "*"

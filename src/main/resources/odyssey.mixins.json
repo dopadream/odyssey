@@ -31,7 +31,6 @@
     "other_entity_tweaks.VillagerEntityMixin",
     "quality_of_life.ArmorStandInteractionMixin",
     "quality_of_life.CheapAnvilRenameMixin",
-    "quality_of_life.MixinInGameOverlayRenderer",
     "quality_of_life.MixinMinecraftClient",
     "quality_of_life.ScreenshotMainMixin",
     "quality_of_life.ScreenshotRecorderMixin",
