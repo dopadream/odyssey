@@ -95,6 +95,17 @@
         },
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
           "name": "odyssey:copper_wrench",
           "weight": 5
         },

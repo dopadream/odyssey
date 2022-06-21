@@ -1,6 +1,7 @@
 package net.sydokiddo.odyssey.mixin.block_tweaks;
 
 import net.sydokiddo.odyssey.misc.OdysseyTags;
+import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -10,7 +11,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -37,7 +37,7 @@ public abstract class LivingEntityMixin extends Entity {
     @Redirect(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;playSound(Lnet/minecraft/sound/SoundEvent;FF)V"))
     private void playSound(LivingEntity entity, SoundEvent sound, float volume, float pitch) {
         if (this.isNearKineticCushioningBlock(entity) && entity.isFallFlying()) {
-            super.playSound(SoundEvents.BLOCK_WOOL_FALL, volume, pitch);
+            super.playSound(ModSoundEvents.BLOCK_PHANTOM_CUSHION_ABSORB, volume, pitch);
         } else {
             super.playSound(sound, volume, pitch);
         }

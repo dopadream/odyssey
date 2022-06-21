@@ -69,6 +69,14 @@
     ],
     "subtitle": "subtitles.item.flintlock.shoot"
   },
+  "block.phantom_cushion.absorb": {
+    "sounds": [
+      "odyssey:block/phantom_cushion/absorb1",
+      "odyssey:block/phantom_cushion/absorb2",
+      "odyssey:block/phantom_cushion/absorb3"
+    ],
+    "subtitle": "subtitles.block.phantom_cushion.absorb"
+  },
   "block.firefly_lantern.place": {
     "sounds": [
       "odyssey:block/firefly_lantern/place1",
