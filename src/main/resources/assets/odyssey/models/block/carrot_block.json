@@ -1,0 +1,8 @@
+{
+	"parent": "block/cube_bottom_top",
+	"textures": {
+		"bottom": "odyssey:block/carrot_block_bottom",
+		"side": "odyssey:block/carrot_block_side",
+		"top": "odyssey:block/carrot_block_top"
+	}
+}

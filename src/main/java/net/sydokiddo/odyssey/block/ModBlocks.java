@@ -52,6 +52,10 @@ public class ModBlocks {
     new PhantomMembraneBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_LIGHT_GRAY)
     .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
 
+    public static final Block PHANTOM_CUSHION = registerBlock("phantom_cushion",
+    new PhantomMembraneBlock(FabricBlockSettings.of(Material.WOOL, MapColor.TERRACOTTA_LIGHT_GRAY)
+    .sounds(BlockSoundGroup.WOOL).strength(1.0f)));
+
     public static final Block SPIDER_EYE_BLOCK = registerBlock("spider_eye_block",
     new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.DARK_RED)
     .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
@@ -84,9 +88,17 @@ public class ModBlocks {
     new ModPillarBlock(FabricBlockSettings.of(Material.STONE, MapColor.BLACK)
     .requiresTool().sounds(BlockSoundGroup.BONE).strength(2.0f)));
 
-    public static final Block PHANTOM_CUSHION = registerBlock("phantom_cushion",
-    new PhantomMembraneBlock(FabricBlockSettings.of(Material.WOOL, MapColor.TERRACOTTA_LIGHT_GRAY)
-    .sounds(BlockSoundGroup.WOOL).strength(1.0f)));
+    public static final Block CARROT_BLOCK = registerBlock("carrot_block",
+    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.ORANGE)
+    .sounds(BlockSoundGroup.CROP).strength(1.0f)));
+
+    public static final Block POTATO_BLOCK = registerBlock("potato_block",
+    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.OAK_TAN)
+    .sounds(BlockSoundGroup.CROP).strength(1.0f)));
+
+    public static final Block BEETROOT_BLOCK = registerBlock("beetroot_block",
+    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.RED)
+    .sounds(BlockSoundGroup.CROP).strength(1.0f)));
 
 // Registry for Blocks:
 

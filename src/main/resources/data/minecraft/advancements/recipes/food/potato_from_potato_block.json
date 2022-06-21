@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:potato_from_potato_block"
+    ]
+  },
+  "criteria": {
+    "has_potato_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "odyssey:potato_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:potato_from_potato_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_potato_block",
+      "has_the_recipe"
+    ]
+  ]
+}

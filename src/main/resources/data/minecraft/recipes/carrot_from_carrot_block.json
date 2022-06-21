@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "odyssey:carrot_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:carrot",
+    "count": 9
+  }
+}

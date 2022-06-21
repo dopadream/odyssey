@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "odyssey:block/potato_block_top",
+    "side": "odyssey:block/potato_block_side"
+  }
+}
