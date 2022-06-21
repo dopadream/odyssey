@@ -51,7 +51,7 @@ public class ModItems {
     new Item(new FabricItemSettings().maxCount(1).group(ModItemGroup.ODYSSEY)));
 
     public static final Item COPPER_WRENCH = registerItem("copper_wrench",
-    new Item(new FabricItemSettings().maxCount(1).group(ModItemGroup.ODYSSEY)));
+    new CopperWrenchItem(new FabricItemSettings().maxCount(1).maxDamage(256).group(ModItemGroup.ODYSSEY)));
 
     public static final Item AMETHYST_DAGGER = registerItem("amethyst_dagger",
     new AmethystDaggerItem(ModToolMaterial.AMETHYST, 1, -2f,

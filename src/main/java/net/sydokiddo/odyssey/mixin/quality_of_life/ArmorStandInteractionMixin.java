@@ -1,5 +1,6 @@
 package net.sydokiddo.odyssey.mixin.quality_of_life;
 
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -38,6 +39,7 @@ public abstract class ArmorStandInteractionMixin {
             player.world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_COPPER_WRENCH_USE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             player.swingHand(hand);
             player.emitGameEvent(GameEvent.ENTITY_INTERACT);
+            heldStack.damage(1, player, (e) -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
             info.setReturnValue(ActionResult.FAIL);
         }
     }
