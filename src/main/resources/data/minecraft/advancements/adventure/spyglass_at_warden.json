@@ -1,0 +1,49 @@
+{
+  "parent": "minecraft:adventure/spyglass_at_ghast",
+  "criteria": {
+    "spyglass_at_warden": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:spyglass"
+          ]
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "looking_at": {
+                  "type": "minecraft:warden"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:using_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventure.spyglass_at_warden.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "minecraft:spyglass"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventure.spyglass_at_warden.title"
+    }
+  },
+  "requirements": [
+    [
+      "spyglass_at_warden"
+    ]
+  ]
+}

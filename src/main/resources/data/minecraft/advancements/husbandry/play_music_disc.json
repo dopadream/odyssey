@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:music_disc_cat"
+    },
+    "title": {
+      "translate": "advancements.husbandry.play_music_disc.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.play_music_disc.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "play_music_disc": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": {
+          "block": {
+            "blocks": [
+              "minecraft:jukebox"
+            ],
+            "state": {
+              "has_record": "true"
+            }
+          }
+        },
+        "item": {
+          "tag": "minecraft:music_discs"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "play_music_disc"
+    ]
+  ]
+}
