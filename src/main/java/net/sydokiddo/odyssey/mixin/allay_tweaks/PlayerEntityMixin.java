@@ -23,8 +23,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 // Issue: (Allays don't seem to remember how to pathfind to note blocks once captured in a book)
 
-// Issue: (Capturing an Allay that is sitting in a boat deletes the boat and the book)
-
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
 
@@ -45,15 +43,11 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
         // Detects if the player has a book in hand and is sneaking in order to capture an Allay
 
-        if ((held.getItem() == Items.BOOK) && this.isSneaking() && !entity.hasVehicle()) {
+        if ((held.getItem() == Items.BOOK) && this.isSneaking() && !entity.hasVehicle() && (entity.getType() == EntityType.ALLAY)) {
 
             // Prevents capturing of Allay if the player is not holding a book
 
             if (held.isEmpty() || held.getItem() != Items.BOOK) {
-                cir.setReturnValue(ActionResult.PASS);
-            }
-
-            if (entity.hasVehicle()) {
                 cir.setReturnValue(ActionResult.PASS);
             }
 
@@ -78,10 +72,15 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 addOrDropStack(player, mobBook);
             }
 
+            // Pass and don't do anything if the entity is not an Allay
+
+            if (!(entity.getType() == EntityType.ALLAY)) {
+                cir.setReturnValue(ActionResult.PASS);
+            }
+
             player.swingHand(hand);
             player.emitGameEvent(GameEvent.ENTITY_INTERACT);
             entity.discard();
-            entity.emitGameEvent(GameEvent.BLOCK_PLACE, entity);
         }
     }
 

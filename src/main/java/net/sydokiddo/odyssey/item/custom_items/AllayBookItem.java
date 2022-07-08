@@ -14,8 +14,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import net.minecraft.world.event.listener.EntityGameEventHandler;
-import net.minecraft.world.event.listener.VibrationListener;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.MobBookHelper;
 
@@ -24,7 +22,7 @@ public class AllayBookItem extends Item {
     public final String storedMobString;
     public World world;
 
-    public AllayBookItem(EntityType<AllayEntity> type, Settings settings, String storedMobString, EntityGameEventHandler<VibrationListener> gameEventHandler) {
+    public AllayBookItem(EntityType<AllayEntity> type, Settings settings, String storedMobString) {
         super(settings);
         this.animalType = type;
         this.storedMobString = storedMobString;

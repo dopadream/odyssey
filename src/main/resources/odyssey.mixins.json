@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "PlayerManagerMixin",
+    "allay_tweaks.AllayVibrationMixin",
     "allay_tweaks.BookItemMixin",
     "allay_tweaks.PlayerEntityMixin",
     "block_tweaks.FarmlandBlockMixin",
