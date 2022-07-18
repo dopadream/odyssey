@@ -39,6 +39,7 @@
     "weapon_enchantments.TridentModification"
   ],
   "client": [
+    "quality_of_life.MiningCooldownFixMixin"
   ],
   "injectors": {
     "defaultRequire": 1
