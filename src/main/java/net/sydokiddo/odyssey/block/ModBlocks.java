@@ -40,7 +40,7 @@ public class ModBlocks {
 
     public static PotionCauldronBlock POTION_CAULDRON_STATE = new PotionCauldronBlock(FabricBlockSettings.copy(Blocks.CAULDRON), PotionCauldronInteraction.POTION_CAULDRON_BEHAVIOR);
 
-    public static final Block POTION_CAULDRON = registerBlock("potion_cauldron",
+    public static final Block POTION_CAULDRON = registerBlockNoItem("potion_cauldron",
             POTION_CAULDRON_STATE
     );
 
@@ -121,6 +121,10 @@ public class ModBlocks {
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
+        return Registry.register(Registry.BLOCK, new ResourceLocation(Odyssey.MOD_ID, name), block);
+    }
+
+    private static Block registerBlockNoItem(String name, Block block){
         return Registry.register(Registry.BLOCK, new ResourceLocation(Odyssey.MOD_ID, name), block);
     }
 
