@@ -29,5 +29,10 @@ public class OdysseyClient implements ClientModInitializer {
                 ModBlocks.FIREFLY_LANTERN
 
         );
+
+        // Initializes potion cauldron color rendering
+
+        CauldronRendering.setRenderColors();
+
     }
 }

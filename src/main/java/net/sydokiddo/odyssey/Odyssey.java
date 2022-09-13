@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.sydokiddo.odyssey.block.ModBlocks;
+import net.sydokiddo.odyssey.block.custom_blocks.PotionCauldronInteraction;
 import net.sydokiddo.odyssey.effect.ModEffects;
 import net.sydokiddo.odyssey.init.MobBookItems;
 import net.sydokiddo.odyssey.item.ModItems;
@@ -82,6 +83,7 @@ public class Odyssey implements ModInitializer {
 
 		Reflection.initialize(MobBookItems.class);
 		MobBookItems.init();
+		PotionCauldronInteraction.bootstrap();
 		put(MobBookItems.ALLAY_BOOK_ITEM, EntityType.ALLAY);
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
@@ -90,7 +92,7 @@ public class Odyssey implements ModInitializer {
 		ModWorldGen.generateModWorldGen();
 		ModConfiguredFeatures.registerConfiguredFeatures();
 
-		LOGGER.info("Thank you for downloading Odyssey! :)");
+		LOGGER.info("Thank you for downloading Odyssey! :3");
 
 		// Furnace Fuel Registry:
 

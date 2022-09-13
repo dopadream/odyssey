@@ -2,27 +2,25 @@ package net.sydokiddo.odyssey.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.AmethystBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.FallingBlock;
-import net.minecraft.world.level.block.LanternBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.sydokiddo.odyssey.Odyssey;
-import net.sydokiddo.odyssey.block.custom_blocks.MagmaCreamBlock;
-import net.sydokiddo.odyssey.block.custom_blocks.ModPillarBlock;
-import net.sydokiddo.odyssey.block.custom_blocks.PhantomMembraneBlock;
+import net.sydokiddo.odyssey.block.custom_blocks.*;
 import net.sydokiddo.odyssey.item.ModItemGroup;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 
 public class ModBlocks {
+
+
 
 // List of Blocks:
 
@@ -39,6 +37,15 @@ public class ModBlocks {
     .sound(ModSoundEvents.FIREFLY_LANTERN).requiresCorrectToolForDrops().destroyTime(3.5f).strength(3.5f).lightLevel((blockStatex) -> {
         return 10;
     })));
+
+    public static PotionCauldronBlock POTION_CAULDRON_STATE = new PotionCauldronBlock(FabricBlockSettings.copy(Blocks.CAULDRON), PotionCauldronInteraction.POTION_CAULDRON_BEHAVIOR);
+
+    public static final Block POTION_CAULDRON = registerBlock("potion_cauldron",
+            POTION_CAULDRON_STATE
+    );
+
+    public static final BlockEntityType<PotionCauldronBlockEntity> POTION_CAULDRON_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, Odyssey.MOD_ID + "potion_cauldron_entity", FabricBlockEntityTypeBuilder.create(PotionCauldronBlockEntity::new, POTION_CAULDRON).build(null));
+
 
     public static final Block GUNPOWDER_BLOCK = registerBlock("gunpowder_block",
     new FallingBlock(FabricBlockSettings.of(Material.DIRT, MaterialColor.COLOR_GRAY)
