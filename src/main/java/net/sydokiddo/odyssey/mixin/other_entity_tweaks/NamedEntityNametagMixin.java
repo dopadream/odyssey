@@ -1,17 +1,17 @@
 package net.sydokiddo.odyssey.mixin.other_entity_tweaks;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Tameable;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageTracker;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.Text;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.World;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.damagesource.CombatTracker;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.OwnableEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,24 +25,24 @@ public abstract class NamedEntityNametagMixin extends Entity {
 
     @Shadow protected boolean dead;
 
-    @Shadow public abstract DamageTracker getDamageTracker();
+    @Shadow public abstract CombatTracker getCombatTracker();
 
-    public NamedEntityNametagMixin(EntityType<?> type, World world) {
+    public NamedEntityNametagMixin(EntityType<?> type, Level world) {
         super(type, world);
     }
 
-    @Inject(method = "onDeath", at = @At("HEAD"))
+    @Inject(method = "die", at = @At("HEAD"))
     public void onDeath(DamageSource source, CallbackInfo ci) {
 
         if (!this.isRemoved() && !this.dead) {
 
             // Checks to see if the entity has a custom name
 
-            if (hasCustomName() || (this instanceof Tameable && ((Tameable) this).getOwner() != null)) {
+            if (hasCustomName() || (this instanceof OwnableEntity && ((OwnableEntity) this).getOwner() != null)) {
                 ItemStack tag = new ItemStack(Items.NAME_TAG, 1);
-                NbtCompound nbt = new NbtCompound();
+                CompoundTag nbt = new CompoundTag();
 
-                Text EntityName = getDefaultName();
+                Component EntityName = getTypeName();
 
                 if (hasCustomName()) {
                     EntityName = getCustomName();
@@ -50,16 +50,16 @@ public abstract class NamedEntityNametagMixin extends Entity {
 
             // Sets the name of the dropped name tag to the killed entity's name
 
-                tag.setCustomName(EntityName);
-                assert tag.getNbt() != null;
-                tag.getNbt().put("data",nbt);
-                dropStack(tag);
+                tag.setHoverName(EntityName);
+                assert tag.getTag() != null;
+                tag.getTag().put("data",nbt);
+                spawnAtLocation(tag);
             }
 
             // Sends the death message of the named entity in the chat
 
-            if (hasCustomName() &&!this.world.isClient && this.world.getGameRules().getBoolean(GameRules.SHOW_DEATH_MESSAGES)) {
-                this.world.getPlayers().forEach(player -> player.sendMessage(this.getDamageTracker().getDeathMessage()));
+            if (hasCustomName() &&!this.level.isClientSide && this.level.getGameRules().getBoolean(GameRules.RULE_SHOWDEATHMESSAGES)) {
+                this.level.players().forEach(player -> player.sendSystemMessage(this.getCombatTracker().getDeathMessage()));
             }
         }
     }

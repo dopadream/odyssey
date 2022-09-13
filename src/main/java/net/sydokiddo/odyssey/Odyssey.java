@@ -6,19 +6,21 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.damage.EntityDamageSource;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.stat.Stats;
-import net.minecraft.util.ActionResult;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.EntityDamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.sydokiddo.odyssey.block.ModBlocks;
 import net.sydokiddo.odyssey.effect.ModEffects;
 import net.sydokiddo.odyssey.init.MobBookItems;
@@ -105,50 +107,50 @@ public class Odyssey implements ModInitializer {
 		// Turning small flowers into Wither Roses using Wither Bone Meal
 
 		UseBlockCallback.EVENT.register((player, world, hand, hitresult) -> {
-			if (player.getStackInHand(hand).getItem() == ModItems.WITHER_BONE_MEAL) {
+			if (player.getItemInHand(hand).getItem() == ModItems.WITHER_BONE_MEAL) {
 
 				var pos = hitresult.getBlockPos();
 				var block = world.getBlockState(pos);
 
-				if (block.isIn(OdysseyTags.WITHER_BONE_MEAL_CONVERTIBLE)) {
+				if (block.is(OdysseyTags.WITHER_BONE_MEAL_CONVERTIBLE)) {
 
 					var decay = BLOCK_CONVERTING.get(block.getBlock());
 					if (decay != null) {
 
 						// Changes any small flower to a Wither Rose
 
-						world.setBlockState(pos, Objects.requireNonNull(BLOCK_CONVERTING.get(block.getBlock())).getDefaultState());
+						world.setBlockAndUpdate(pos, Objects.requireNonNull(BLOCK_CONVERTING.get(block.getBlock())).defaultBlockState());
 
 						// Particles and Sound Event
 
-						world.playSound(null, pos, ModSoundEvents.ITEM_WITHER_BONE_MEAL_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
+						world.playSound(null, pos, ModSoundEvents.ITEM_WITHER_BONE_MEAL_USE, SoundSource.BLOCKS, 1.0f, 1.0f);
 						world.addParticle(ParticleTypes.SMOKE, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
 
 						// Stats and Advancements
 
-						ItemStack heldItem = player.getStackInHand(hand);
+						ItemStack heldItem = player.getItemInHand(hand);
 						Item item = heldItem.getItem();
-						player.incrementStat(Stats.USED.getOrCreateStat(item));
-						if (player instanceof ServerPlayerEntity) {
-							Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity) player, pos, heldItem);
+						player.awardStat(Stats.ITEM_USED.get(item));
+						if (player instanceof ServerPlayer) {
+							CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer) player, pos, heldItem);
 						}
 
 						// Remove 1 Wither Bone Meal if the player is not in Creative Mode
 
 						if (!player.isCreative()) {
-							heldItem.decrement(1);
+							heldItem.shrink(1);
 						}
 
-						return ActionResult.SUCCESS;
+						return InteractionResult.SUCCESS;
 					} else {
-						return ActionResult.PASS;
+						return InteractionResult.PASS;
 					}
 				}
 			} else {
-				return ActionResult.PASS;
+				return InteractionResult.PASS;
 			}
 
-			return ActionResult.PASS;
+			return InteractionResult.PASS;
 		});
 	}
 
@@ -158,7 +160,7 @@ public class Odyssey implements ModInitializer {
 
 		public BackstabDamageSource(Entity source) {
 			super("backstab", source);
-			setBypassesArmor();
+			bypassArmor();
 		}
 	}
 

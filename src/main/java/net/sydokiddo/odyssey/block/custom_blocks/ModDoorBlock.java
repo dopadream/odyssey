@@ -1,9 +1,9 @@
 package net.sydokiddo.odyssey.block.custom_blocks;
 
-import net.minecraft.block.DoorBlock;
+import net.minecraft.world.level.block.DoorBlock;
 
 public class ModDoorBlock extends DoorBlock {
-    public ModDoorBlock(Settings settings) {
+    public ModDoorBlock(Properties settings) {
         super(settings);
     }
 }

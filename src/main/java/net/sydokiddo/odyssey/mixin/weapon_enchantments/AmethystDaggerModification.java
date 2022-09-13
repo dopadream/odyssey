@@ -1,7 +1,10 @@
 package net.sydokiddo.odyssey.mixin.weapon_enchantments;
 
-import net.minecraft.enchantment.*;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.DamageEnchantment;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.item.enchantment.LootBonusEnchantment;
 import net.sydokiddo.odyssey.item.custom_items.AmethystDaggerItem;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,16 +21,16 @@ public abstract class AmethystDaggerModification {
 
     @Shadow
     @Final
-    public EnchantmentTarget type;
-    @Inject(method = "isAcceptableItem", at = @At("HEAD"), cancellable = true)
+    public EnchantmentCategory category;
+    @Inject(method = "canEnchant", at = @At("HEAD"), cancellable = true)
     public void isAcceptableItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         Enchantment enchantment = (Enchantment) (Object) this;
-        if (enchantment instanceof LuckEnchantment) {
-            if (type != EnchantmentTarget.WEAPON || !(stack.getItem() instanceof AmethystDaggerItem)) return;
+        if (enchantment instanceof LootBonusEnchantment) {
+            if (category != EnchantmentCategory.WEAPON || !(stack.getItem() instanceof AmethystDaggerItem)) return;
             cir.setReturnValue(true);
         }
         if (enchantment instanceof DamageEnchantment) {
-            if (type != EnchantmentTarget.WEAPON || !(stack.getItem() instanceof AmethystDaggerItem)) return;
+            if (category != EnchantmentCategory.WEAPON || !(stack.getItem() instanceof AmethystDaggerItem)) return;
             cir.setReturnValue(true);
         }
     }

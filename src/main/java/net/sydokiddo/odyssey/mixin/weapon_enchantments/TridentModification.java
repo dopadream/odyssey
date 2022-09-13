@@ -1,8 +1,10 @@
 package net.sydokiddo.odyssey.mixin.weapon_enchantments;
 
-import net.minecraft.enchantment.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.TridentItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TridentItem;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.item.enchantment.LootBonusEnchantment;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -18,12 +20,12 @@ public abstract class TridentModification {
 
     @Shadow
     @Final
-    public EnchantmentTarget type;
-    @Inject(method = "isAcceptableItem", at = @At("HEAD"), cancellable = true)
+    public EnchantmentCategory category;
+    @Inject(method = "canEnchant", at = @At("HEAD"), cancellable = true)
     public void isAcceptableItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         Enchantment enchantment = (Enchantment) (Object) this;
-        if (enchantment instanceof LuckEnchantment) {
-            if (type != EnchantmentTarget.WEAPON || !(stack.getItem() instanceof TridentItem)) return;
+        if (enchantment instanceof LootBonusEnchantment) {
+            if (category != EnchantmentCategory.WEAPON || !(stack.getItem() instanceof TridentItem)) return;
             cir.setReturnValue(true);
         }
     }

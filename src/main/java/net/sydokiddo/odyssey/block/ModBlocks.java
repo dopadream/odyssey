@@ -2,13 +2,19 @@ package net.sydokiddo.odyssey.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.FallingBlock;
+import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.sydokiddo.odyssey.Odyssey;
 import net.sydokiddo.odyssey.block.custom_blocks.MagmaCreamBlock;
 import net.sydokiddo.odyssey.block.custom_blocks.ModPillarBlock;
@@ -21,95 +27,99 @@ public class ModBlocks {
 // List of Blocks:
 
     public static final Block RUBY_BLOCK = registerBlock("ruby_block",
-    new Block(FabricBlockSettings.of(Material.METAL, MapColor.BRIGHT_RED)
-    .sounds(BlockSoundGroup.METAL).requiresTool().hardness(5.0f).strength(6.0f)));
+    new Block(FabricBlockSettings.of(Material.METAL, MaterialColor.FIRE)
+    .sound(SoundType.METAL).requiresCorrectToolForDrops().destroyTime(5.0f).strength(6.0f)));
 
     public static final Block REFINED_AMETHYST_BLOCK = registerBlock("refined_amethyst_block",
-    new AmethystBlock(FabricBlockSettings.of(Material.AMETHYST, MapColor.PURPLE)
-    .sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().hardness(3.0f).strength(1.5f)));
+    new AmethystBlock(FabricBlockSettings.of(Material.AMETHYST, MaterialColor.COLOR_PURPLE)
+    .sound(SoundType.AMETHYST).requiresCorrectToolForDrops().destroyTime(3.0f).strength(1.5f)));
 
     public static final Block FIREFLY_LANTERN = registerBlock("firefly_lantern",
-    new LanternBlock(FabricBlockSettings.of(Material.METAL, MapColor.IRON_GRAY)
-    .sounds(ModSoundEvents.FIREFLY_LANTERN).requiresTool().luminance(10).hardness(3.5f).strength(3.5f)));
+    new LanternBlock(FabricBlockSettings.of(Material.METAL, MaterialColor.METAL)
+    .sound(ModSoundEvents.FIREFLY_LANTERN).requiresCorrectToolForDrops().destroyTime(3.5f).strength(3.5f).lightLevel((blockStatex) -> {
+        return 10;
+    })));
 
     public static final Block GUNPOWDER_BLOCK = registerBlock("gunpowder_block",
-    new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY)
-    .sounds(BlockSoundGroup.SAND).hardness(0.5f).strength(0.5f)));
+    new FallingBlock(FabricBlockSettings.of(Material.DIRT, MaterialColor.COLOR_GRAY)
+    .sound(SoundType.SAND).destroyTime(0.5f).strength(0.5f)));
 
     public static final Block SUGAR_CANE_BLOCK = registerBlock("sugar_cane_block",
-    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN)
-    .sounds(BlockSoundGroup.GRASS).hardness(1.0f).strength(1.0f)));
+    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MaterialColor.GRASS)
+    .sound(SoundType.GRASS).destroyTime(1.0f).strength(1.0f)));
 
     public static final Block BAMBOO_BLOCK = registerBlock("bamboo_block",
-    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MapColor.GREEN)
-    .sounds(BlockSoundGroup.BAMBOO).hardness(1.0f).strength(1.0f)));
+    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MaterialColor.COLOR_GREEN)
+    .sound(SoundType.BAMBOO).destroyTime(1.0f).strength(1.0f)));
 
     public static final Block ROTTEN_FLESH_BLOCK = registerBlock("rotten_flesh_block",
-    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_ORANGE)
-    .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
+    new Block(FabricBlockSettings.of(Material.GRASS, MaterialColor.TERRACOTTA_ORANGE)
+    .sound(SoundType.WET_GRASS).destroyTime(1.0f).strength(1.0f)));
 
     public static final Block PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
-    new PhantomMembraneBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_LIGHT_GRAY)
-    .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
+    new PhantomMembraneBlock(FabricBlockSettings.of(Material.GRASS, MaterialColor.TERRACOTTA_LIGHT_GRAY)
+    .sound(SoundType.WET_GRASS).destroyTime(1.0f).strength(1.0f)));
 
     public static final Block PHANTOM_CUSHION = registerBlock("phantom_cushion",
-    new PhantomMembraneBlock(FabricBlockSettings.of(Material.WOOL, MapColor.TERRACOTTA_LIGHT_GRAY)
-    .sounds(BlockSoundGroup.WOOL).strength(1.0f)));
+    new PhantomMembraneBlock(FabricBlockSettings.of(Material.WOOL, MaterialColor.TERRACOTTA_LIGHT_GRAY)
+    .sound(SoundType.WOOL).strength(1.0f)));
 
     public static final Block SPIDER_EYE_BLOCK = registerBlock("spider_eye_block",
-    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.DARK_RED)
-    .sounds(BlockSoundGroup.WET_GRASS).hardness(1.0f).strength(1.0f)));
+    new Block(FabricBlockSettings.of(Material.GRASS, MaterialColor.NETHER)
+    .sound(SoundType.WET_GRASS).destroyTime(1.0f).strength(1.0f)));
 
     public static final Block MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
-    new MagmaCreamBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.RED)
-    .sounds(BlockSoundGroup.SLIME).luminance(8).hardness(0.0f).strength(0.0f).nonOpaque()));
+    new MagmaCreamBlock(FabricBlockSettings.of(Material.GRASS, MaterialColor.COLOR_RED)
+    .sound(SoundType.SLIME_BLOCK).destroyTime(0.0f).strength(0.0f).noOcclusion().lightLevel((blockStatex) -> {
+        return 8;
+    })));
 
     public static final Block BLAZE_POWDER_BLOCK = registerBlock("blaze_powder_block",
-    new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.ORANGE)
-    .sounds(BlockSoundGroup.SAND).hardness(0.5f).strength(0.5f)));
+    new FallingBlock(FabricBlockSettings.of(Material.DIRT, MaterialColor.COLOR_ORANGE)
+    .sound(SoundType.SAND).destroyTime(0.5f).strength(0.5f)));
 
     public static final Block PAPER_BLOCK = registerBlock("paper_block",
-    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MapColor.WHITE)
-    .sounds(ModSoundEvents.PAPER_BLOCK).hardness(0.5f).strength(0.5f)));
+    new ModPillarBlock(FabricBlockSettings.of(Material.PLANT, MaterialColor.SNOW)
+    .sound(ModSoundEvents.PAPER_BLOCK).destroyTime(0.5f).strength(0.5f)));
 
     public static final Block SUGAR_BLOCK = registerBlock("sugar_block",
-    new FallingBlock(FabricBlockSettings.of(Material.SOIL, MapColor.WHITE)
-    .sounds(BlockSoundGroup.SAND).hardness(0.5f).strength(0.5f)));
+    new FallingBlock(FabricBlockSettings.of(Material.DIRT, MaterialColor.SNOW)
+    .sound(SoundType.SAND).destroyTime(0.5f).strength(0.5f)));
 
     public static final Block RUBY_ORE = registerBlock("ruby_ore",
-    new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY)
-    .sounds(BlockSoundGroup.STONE).requiresTool().hardness(3.0f).strength(3.0f), UniformIntProvider.create(3, 7)));
+    new DropExperienceBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.STONE)
+    .sound(SoundType.STONE).requiresCorrectToolForDrops().destroyTime(3.0f).strength(3.0f), UniformInt.of(3, 7)));
 
     public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore",
-    new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY)
-    .sounds(BlockSoundGroup.DEEPSLATE).requiresTool().hardness(4.5f).strength(3.0f), UniformIntProvider.create(3, 7)));
+    new DropExperienceBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.DEEPSLATE)
+    .sound(SoundType.DEEPSLATE).requiresCorrectToolForDrops().destroyTime(4.5f).strength(3.0f), UniformInt.of(3, 7)));
 
     public static final Block WITHER_BONE_BLOCK = registerBlock("wither_bone_block",
-    new ModPillarBlock(FabricBlockSettings.of(Material.STONE, MapColor.BLACK)
-    .requiresTool().sounds(BlockSoundGroup.BONE).strength(2.0f)));
+    new ModPillarBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.COLOR_BLACK)
+    .requiresCorrectToolForDrops().sound(SoundType.BONE_BLOCK).strength(2.0f)));
 
     public static final Block CARROT_BLOCK = registerBlock("carrot_block",
-    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.ORANGE)
-    .sounds(BlockSoundGroup.CROP).strength(1.0f)));
+    new Block(FabricBlockSettings.of(Material.GRASS, MaterialColor.COLOR_ORANGE)
+    .sound(SoundType.CROP).strength(1.0f)));
 
     public static final Block POTATO_BLOCK = registerBlock("potato_block",
-    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.OAK_TAN)
-    .sounds(BlockSoundGroup.CROP).strength(1.0f)));
+    new Block(FabricBlockSettings.of(Material.GRASS, MaterialColor.WOOD)
+    .sound(SoundType.CROP).strength(1.0f)));
 
     public static final Block BEETROOT_BLOCK = registerBlock("beetroot_block",
-    new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.RED)
-    .sounds(BlockSoundGroup.CROP).strength(1.0f)));
+    new Block(FabricBlockSettings.of(Material.GRASS, MaterialColor.COLOR_RED)
+    .sound(SoundType.CROP).strength(1.0f)));
 
 // Registry for Blocks:
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);
-        return Registry.register(Registry.BLOCK, new Identifier(Odyssey.MOD_ID, name), block);
+        return Registry.register(Registry.BLOCK, new ResourceLocation(Odyssey.MOD_ID, name), block);
     }
 
     private static Item registerBlockItem(String name, Block block){
-        return Registry.register(Registry.ITEM, new Identifier(Odyssey.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings().group(ModItemGroup.ODYSSEY)));
+        return Registry.register(Registry.ITEM, new ResourceLocation(Odyssey.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings().tab(ModItemGroup.ODYSSEY)));
     }
 
     public static void registerModBlocks() {

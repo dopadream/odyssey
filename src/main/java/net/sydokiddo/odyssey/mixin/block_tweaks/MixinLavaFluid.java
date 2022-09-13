@@ -1,14 +1,14 @@
 package net.sydokiddo.odyssey.mixin.block_tweaks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.fluid.LavaFluid;
-import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.LavaFluid;
 
 @Mixin(LavaFluid.class)
 public class MixinLavaFluid {
@@ -17,9 +17,9 @@ public class MixinLavaFluid {
 
     Random random = new Random();
 
-    @ModifyArg(method = "flow",
+    @ModifyArg(method = "spreadTo",
             at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/world/WorldAccess;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z"),
+                    target = "Lnet/minecraft/world/level/LevelAccessor;setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Z"),
             index = 1)
     protected BlockState deepslate$flow(BlockPos pos, BlockState state, int flag) {
         System.out.println(pos.toString());
@@ -27,7 +27,7 @@ public class MixinLavaFluid {
         // If Y value <= 0, 100% chance to generate Deepslate
         // Else if Y value <= 8, (9 - y) * 12.5% chance to generate Deepslate
         if (random.nextInt(1, 9) - y_level >= 0) {
-            return Blocks.DEEPSLATE.getDefaultState();
+            return Blocks.DEEPSLATE.defaultBlockState();
         }
         return state;
     }

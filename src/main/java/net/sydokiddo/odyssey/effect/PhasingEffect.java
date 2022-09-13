@@ -1,32 +1,31 @@
 package net.sydokiddo.odyssey.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
-public class PhasingEffect extends StatusEffect {
+public class PhasingEffect extends MobEffect {
 
-    public PhasingEffect(StatusEffectCategory statusEffectCategory, int color) {
+    public PhasingEffect(MobEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }
 
     // Phasing Effect (Highly WIP!)
 
     @Override
-    public void applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
-        if (pLivingEntity instanceof PlayerEntity) {
+    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+        if (pLivingEntity instanceof Player) {
             //pLivingEntity.noClip = pLivingEntity.hasStatusEffect(ModEffects.PHASING);
             //pLivingEntity.setOnGround(true);
             //pLivingEntity.verticalCollision = true;
         }
 
-        super.applyUpdateEffect(pLivingEntity, pAmplifier);
+        super.applyEffectTick(pLivingEntity, pAmplifier);
     }
 
     @Override
-    public boolean canApplyUpdateEffect(int pDuration, int pAmplifier) {
+    public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
         return true;
     }
 }

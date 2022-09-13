@@ -2,7 +2,7 @@ package net.sydokiddo.odyssey.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.renderer.RenderType;
 import net.sydokiddo.odyssey.block.ModBlocks;
 
 @net.fabricmc.api.Environment(net.fabricmc.api.EnvType.CLIENT)
@@ -14,7 +14,7 @@ public class OdysseyClient implements ClientModInitializer {
         // Renders Blocks in List as Transparent (Without Translucency)
 
         BlockRenderLayerMap.INSTANCE.putBlocks(
-                RenderLayer.getCutout(),
+                RenderType.cutout(),
 
                 ModBlocks.FIREFLY_LANTERN
 
@@ -23,7 +23,7 @@ public class OdysseyClient implements ClientModInitializer {
         // Renders Blocks in List as Transparent (With Translucency)
 
         BlockRenderLayerMap.INSTANCE.putBlocks(
-                RenderLayer.getTranslucent(),
+                RenderType.translucent(),
 
                 ModBlocks.MAGMA_CREAM_BLOCK,
                 ModBlocks.FIREFLY_LANTERN

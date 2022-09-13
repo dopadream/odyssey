@@ -1,77 +1,80 @@
 package net.sydokiddo.odyssey.item.custom_items;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.passive.AllayEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.animal.allay.Allay;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.sydokiddo.odyssey.sound.ModSoundEvents;
 import net.sydokiddo.odyssey.util.MobBookHelper;
 
 public class AllayBookItem extends Item {
-    public final EntityType<AllayEntity> animalType;
+    public final EntityType<Allay> animalType;
     public final String storedMobString;
-    public World world;
+    public Level world;
 
-    public AllayBookItem(EntityType<AllayEntity> type, Settings settings, String storedMobString) {
+    public AllayBookItem(EntityType<Allay> type, Properties settings, String storedMobString) {
         super(settings);
         this.animalType = type;
         this.storedMobString = storedMobString;
     }
 
     @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        if (context.getPlayer() == null || context.getWorld().isClient)
-            return ActionResult.FAIL;
+    public InteractionResult useOn(UseOnContext context) {
+        if (context.getPlayer() == null || context.getLevel().isClientSide)
+            return InteractionResult.FAIL;
 
-        PlayerEntity player = context.getPlayer();
-        World world = context.getWorld();
-        BlockPos pos = context.getBlockPos();
-        Direction facing = context.getSide();
-        Hand hand = context.getHand();
-        ItemStack held = player.getStackInHand(hand);
+        Player player = context.getPlayer();
+        Level world = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        Direction facing = context.getClickedFace();
+        InteractionHand hand = context.getHand();
+        ItemStack held = player.getItemInHand(hand);
 
-        world.playSound(null, player.getBlockPos(), ModSoundEvents.ITEM_ALLAY_BOOK_RELEASE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-        player.emitGameEvent(GameEvent.BLOCK_PLACE);
+        world.playSound(null, player.blockPosition(), ModSoundEvents.ITEM_ALLAY_BOOK_RELEASE, SoundSource.NEUTRAL, 1.0F, 1.0F);
+        player.gameEvent(GameEvent.BLOCK_PLACE);
 
-        if (!world.isClient) {
-            double x = pos.getX() + 0.5F + facing.getOffsetX();
-            double y = pos.getY() + 0.25F + (world.random.nextFloat() / 2.0F) + facing.getOffsetY();
-            double z = pos.getZ() + 0.5F + facing.getOffsetZ();
+        if (!world.isClientSide) {
+            double x = pos.getX() + 0.5F + facing.getStepX();
+            double y = pos.getY() + 0.25F + (world.random.nextFloat() / 2.0F) + facing.getStepY();
+            double z = pos.getZ() + 0.5F + facing.getStepZ();
             BlockPos spawnPos = new BlockPos(x, y, z);
 
             // Spawns Allay
 
-            AllayEntity mob = MobBookHelper.spawn(animalType, (ServerWorld)world, spawnPos, SpawnReason.MOB_SUMMONED);
+            Allay mob = MobBookHelper.spawn(animalType, (ServerLevel)world, spawnPos, MobSpawnType.MOB_SUMMONED);
             if (mob != null) {
 
-                NbtCompound data = MobBookHelper.getCompound(held, storedMobString);
+                CompoundTag data = MobBookHelper.getCompound(held, storedMobString);
 
-                mob.readCustomDataFromNbt(data);
+                mob.readAdditionalSaveData(data);
                 }
 
-                if (context.getStack().hasCustomName()) {
+                if (context.getItemInHand().hasCustomHoverName()) {
                     assert mob != null;
-                    mob.setCustomName(context.getStack().getName());
+                    mob.setCustomName(context.getItemInHand().getHoverName());
                 }
 
-                world.spawnEntity(mob);
-                player.getItemCooldownManager().set(this, 30);
+                world.addFreshEntity(mob);
+                player.getCooldowns().addCooldown(this, 30);
             }
-        player.swingHand(hand);
+        player.swing(hand);
 
         if (!player.isCreative())
-            player.setStackInHand(hand, new ItemStack(Items.BOOK));
+            player.setItemInHand(hand, new ItemStack(Items.BOOK));
 
-        return ActionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 }

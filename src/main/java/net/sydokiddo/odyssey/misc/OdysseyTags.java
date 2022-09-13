@@ -1,12 +1,12 @@
 package net.sydokiddo.odyssey.misc;
 
-import net.minecraft.block.Block;
-import net.minecraft.tag.TagKey;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 
 public class OdysseyTags {
-    public static final TagKey<Block> UNPHASEABLE_BLOCKS = TagKey.of(Registry.BLOCK_KEY, new Identifier("odyssey", "unphaseable_blocks"));
-    public static final TagKey<Block> KINETIC_CUSHIONING_BLOCKS = TagKey.of(Registry.BLOCK_KEY, new Identifier("odyssey", "kinetic_cushioning_blocks"));
-    public static final TagKey<Block> WITHER_BONE_MEAL_CONVERTIBLE = TagKey.of(Registry.BLOCK_KEY, new Identifier("odyssey", "wither_bone_meal_convertible"));
+    public static final TagKey<Block> UNPHASEABLE_BLOCKS = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("odyssey", "unphaseable_blocks"));
+    public static final TagKey<Block> KINETIC_CUSHIONING_BLOCKS = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("odyssey", "kinetic_cushioning_blocks"));
+    public static final TagKey<Block> WITHER_BONE_MEAL_CONVERTIBLE = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("odyssey", "wither_bone_meal_convertible"));
 }

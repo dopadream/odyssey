@@ -1,9 +1,9 @@
 package net.sydokiddo.odyssey.sound;
 
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.block.SoundType;
 import net.sydokiddo.odyssey.Odyssey;
 
 public class ModSoundEvents {
@@ -44,16 +44,16 @@ public class ModSoundEvents {
 
 // Sound Groups:
 
-    public static final BlockSoundGroup PAPER_BLOCK = new BlockSoundGroup(1f, 1f,
+    public static final SoundType PAPER_BLOCK = new SoundType(1f, 1f,
             ModSoundEvents.BLOCK_PAPER_BLOCK_BREAK, ModSoundEvents.BLOCK_PAPER_BLOCK_STEP, ModSoundEvents.BLOCK_PAPER_BLOCK_PLACE,
             ModSoundEvents.BLOCK_PAPER_BLOCK_HIT, ModSoundEvents.BLOCK_PAPER_BLOCK_FALL);
 
-    public static final BlockSoundGroup FIREFLY_LANTERN = new BlockSoundGroup(1f, 1f,
+    public static final SoundType FIREFLY_LANTERN = new SoundType(1f, 1f,
             ModSoundEvents.BLOCK_FIREFLY_LANTERN_BREAK, ModSoundEvents.BLOCK_FIREFLY_LANTERN_STEP, ModSoundEvents.BLOCK_FIREFLY_LANTERN_PLACE,
             ModSoundEvents.BLOCK_FIREFLY_LANTERN_HIT, ModSoundEvents.BLOCK_FIREFLY_LANTERN_FALL);
 
     private static SoundEvent registerSoundEvent(String name) {
-        Identifier id = new Identifier(Odyssey.MOD_ID, name);
+        ResourceLocation id = new ResourceLocation(Odyssey.MOD_ID, name);
         return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));
     }
 

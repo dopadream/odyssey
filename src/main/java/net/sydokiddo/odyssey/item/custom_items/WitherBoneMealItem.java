@@ -1,9 +1,9 @@
 package net.sydokiddo.odyssey.item.custom_items;
 
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 public class WitherBoneMealItem extends Item {
-    public WitherBoneMealItem(Settings settings) {
+    public WitherBoneMealItem(Properties settings) {
         super(settings);
     }
 }

@@ -1,14 +1,14 @@
 package net.sydokiddo.odyssey.item.custom_items;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public class ModEnchantedFoodItem extends Item {
-    public ModEnchantedFoodItem(Settings settings) {
+    public ModEnchantedFoodItem(Properties settings) {
         super(settings);
     }
 
-    public boolean hasGlint(ItemStack stack) {
+    public boolean isFoil(ItemStack stack) {
         return true;
     }
 }
