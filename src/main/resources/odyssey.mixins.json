@@ -8,7 +8,6 @@
     "allay_tweaks.AllayVibrationMixin",
     "allay_tweaks.BookItemMixin",
     "allay_tweaks.PlayerEntityMixin",
-    "block_tweaks.AbstractCauldronBlockMixin",
     "block_tweaks.FarmlandBlockMixin",
     "block_tweaks.LivingEntityMixin",
     "block_tweaks.MixinAbstractCauldronBlock",

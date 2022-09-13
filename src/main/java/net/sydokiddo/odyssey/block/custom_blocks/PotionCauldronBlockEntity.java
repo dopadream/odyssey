@@ -1,21 +1,28 @@
 package net.sydokiddo.odyssey.block.custom_blocks;
 
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.sydokiddo.odyssey.block.ModBlocks;
+
+import static net.sydokiddo.odyssey.client.CauldronRendering.setRenderColors;
 
 public class PotionCauldronBlockEntity extends BlockEntity {
     public Potion potion = ModBlocks.POTION_CAULDRON_STATE.potion;
@@ -37,21 +44,28 @@ public class PotionCauldronBlockEntity extends BlockEntity {
     }
 
     public boolean hasPotion() {
-        return this.potion != Potions.EMPTY;
+        return this.potion != Potions.EMPTY && this.potion != null;
     }
 
     public boolean tryApplyPotion(Potion potion) {
         if (this.potion == Potions.EMPTY || this.potion == potion) {
             this.potion = potion;
+            sync();
             return true;
         }
         return false;
     }
 
     public static void particleTick(Level level, BlockPos blockPos, BlockState blockState, PotionCauldronBlockEntity potionCauldronBlockEntity) {
-        if (potionCauldronBlockEntity.getPotion() !=  Potions.EMPTY && potionCauldronBlockEntity.hasPotion()) {
+        if (potionCauldronBlockEntity.hasPotion() && potionCauldronBlockEntity.getPotion().getEffects() !=  null ) {
             RandomSource randomSource = level.random;
-            int i = PotionUtils.getColor(potionCauldronBlockEntity.getPotion().getEffects());
+            setRenderColors();
+
+
+            int i = PotionUtils.getColor(potionCauldronBlockEntity.getPotion());
+
+            potionCauldronBlockEntity.setChanged();
+            level.sendBlockUpdated(potionCauldronBlockEntity.getBlockPos(), potionCauldronBlockEntity.getBlockState(), potionCauldronBlockEntity.getBlockState(), Block.UPDATE_ALL);
 
             float f1 = randomSource.nextFloat();
             if (f1 > 0.05f) return;
@@ -60,9 +74,11 @@ public class PotionCauldronBlockEntity extends BlockEntity {
             double e = (double)(i >> 8 & 0xFF) / 255.0;
             double f = (double)(i & 0xFF) / 255.0;
             level.addParticle(ParticleTypes.ENTITY_EFFECT, blockPos.getX() + 0.5, blockPos.getY() + 1f, blockPos.getZ() + 0.5, d, e, f);
+
+            potionCauldronBlockEntity.setChanged();
+            level.sendBlockUpdated(potionCauldronBlockEntity.getBlockPos(), potionCauldronBlockEntity.getBlockState(), potionCauldronBlockEntity.getBlockState(), Block.UPDATE_ALL);
         }
     }
-
 
     @Override
     public void saveAdditional(CompoundTag compound) {
@@ -84,4 +100,15 @@ public class PotionCauldronBlockEntity extends BlockEntity {
     }
 
 
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    protected void sync() {
+        if (this.level != null) {
+            this.setChanged();
+            this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), Block.UPDATE_ALL);
+        }
+    }
 }
