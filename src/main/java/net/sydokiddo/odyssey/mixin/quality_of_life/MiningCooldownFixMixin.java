@@ -7,7 +7,8 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 // Fixes the hardcoded 6 tick mining cooldown and sets it to 0
 
-// But Sydney, why? Just why?
+// Steph here,
+// Why?
 
 @Mixin(MultiPlayerGameMode.class)
 public abstract class MiningCooldownFixMixin {
