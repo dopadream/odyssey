@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 // Feel free to remove this, I know you didn't want it here
 
 @Mixin(Items.class)
-abstract class ItemsMixin implements ItemMaxCount {
+abstract class ItemsMixin {
     @ModifyArg(method = "<clinit>",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;", ordinal = 0),
             slice = @Slice( from = @At(value = "NEW", target = "Lnet/minecraft/world/item/PotionItem;")))

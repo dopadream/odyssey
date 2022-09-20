@@ -20,6 +20,7 @@
     "bone_meal_additions.SugarCaneBlockBoneMealMixin",
     "item_tweaks.BrewingStandScreenHandlerMixin",
     "item_tweaks.EggEntityMixin",
+    "item_tweaks.ItemMixin",
     "item_tweaks.ItemsMixin",
     "item_tweaks.PotionItemMixin",
     "item_tweaks.SnowballEntityMixin",
