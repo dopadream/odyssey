@@ -104,7 +104,6 @@ public class Odyssey implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BAMBOO_BLOCK, 60, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.SUGAR_CANE_BLOCK, 60, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PAPER_BLOCK, 60, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.PHANTOM_CUSHION, 30, 10);
 
 		// Turning small flowers into Wither Roses using Wither Bone Meal
 
