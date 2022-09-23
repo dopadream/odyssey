@@ -9,7 +9,6 @@
     "allay_tweaks.BookItemMixin",
     "allay_tweaks.PlayerEntityMixin",
     "block_tweaks.FarmlandBlockMixin",
-    "block_tweaks.LivingEntityMixin",
     "block_tweaks.MixinAbstractCauldronBlock",
     "block_tweaks.MixinAnvilBlock",
     "block_tweaks.MixinFluidBlock",
