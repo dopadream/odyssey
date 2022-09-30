@@ -24,6 +24,7 @@
     "item_tweaks.PotionItemMixin",
     "item_tweaks.SnowballEntityMixin",
     "item_tweaks.ThrowablePotionItemMixin",
+    "other_entity_tweaks.EntityMixin",
     "other_entity_tweaks.MixinPigEntity",
     "other_entity_tweaks.MixinStriderEntity",
     "other_entity_tweaks.MixinTridentEntity",
@@ -40,5 +41,8 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "item_tweaks.FogRendererMixin"
+  ]
 }
