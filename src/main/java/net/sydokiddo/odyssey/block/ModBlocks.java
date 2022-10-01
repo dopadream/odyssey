@@ -63,14 +63,6 @@ public class ModBlocks {
     new Block(FabricBlockSettings.of(Material.GRASS, MaterialColor.TERRACOTTA_ORANGE)
     .sound(SoundType.WET_GRASS).destroyTime(1.0f).strength(1.0f)));
 
-    public static final Block PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
-    new PhantomMembraneBlock(FabricBlockSettings.of(Material.GRASS, MaterialColor.TERRACOTTA_LIGHT_GRAY)
-    .sound(SoundType.WET_GRASS).destroyTime(1.0f).strength(1.0f)));
-
-    public static final Block PHANTOM_CUSHION = registerBlock("phantom_cushion",
-    new PhantomMembraneBlock(FabricBlockSettings.of(Material.WOOL, MaterialColor.TERRACOTTA_LIGHT_GRAY)
-    .sound(SoundType.WOOL).strength(1.0f)));
-
     public static final Block SPIDER_EYE_BLOCK = registerBlock("spider_eye_block",
     new Block(FabricBlockSettings.of(Material.GRASS, MaterialColor.NETHER)
     .sound(SoundType.WET_GRASS).destroyTime(1.0f).strength(1.0f)));
